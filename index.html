@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="generator" content="DSH Bluebook Static" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,AI Agent,Agent Harness,智能体,自动化,多智能体,子代理,Workflow,插件" />
+  <meta name="description" content="DSH 实战蓝皮书:以真实任务为主线的 DeepSeek Harness 中文实践指南。从下载安装、第一个任务到多智能体协作与团队落地。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DSH 实战蓝皮书｜DeepSeek Harness 从 0 到 100 实践指南" />
+  <meta property="og:description" content="以真实任务为主线的 DeepSeek Harness 实践路径:安装、第一个任务、Skills、子代理、工作流与团队落地。" />
+  <meta property="og:url" content="./index.html" />
+  <meta property="og:image" content="./og/og-image.svg" />
+  <title>DSH 实战蓝皮书｜DeepSeek Harness 从 0 到 100 实践指南</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html" class="active">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">OPEN-SOURCE <span class="dot">·</span> 24 CHAPTERS <span class="dot">·</span> 2026</p>
+      <h1>DSH<span class="accent">蓝皮书</span></h1>
+      <p class="lede">
+        DeepSeek Harness 能干嘛?一套以<strong>真实工作为主线</strong>的 Harness 实践路径。
+        带你从 0 到 1 先用起来,再从 1 到 100 把每次成功沉淀为可复用的工作系统,
+        真正把 AI 变成生产力!
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="./bluebook.html">开始阅读 →</a>
+        <a class="btn btn-ghost" href="./reading-guide.html">查看阅读路线</a>
+        <a class="btn btn-ghost" href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>DSH <span class="hl">24</span> CHAPTERS</span><span><span class="hl">4</span> PARTS</span><span>∞ WORKFLOWS</span>
+      <span>REAL TASKS</span><span>REPRODUCIBLE</span><span>OPEN SOURCE</span><span>WORK SYSTEM</span>
+      <span>SUBAGENTS</span><span>SKILLS</span><span>PLUGINS</span><span>GOALS</span>
+      <span>DSH <span class="hl">24</span> CHAPTERS</span><span><span class="hl">4</span> PARTS</span><span>∞ WORKFLOWS</span>
+      <span>REAL TASKS</span><span>REPRODUCIBLE</span><span>OPEN SOURCE</span><span>WORK SYSTEM</span>
+      <span>SUBAGENTS</span><span>SKILLS</span><span>PLUGINS</span><span>GOALS</span>
+    </div>
+  </div>
+
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">24</div>
+          <div class="stat-label">CHAPTERS · 章</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4</div>
+          <div class="stat-label">PARTS · 篇</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">WORKFLOWS · 工作流</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num count-up" data-target="3080">0</div>
+          <div class="stat-label">PORT · 默认端口</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="badge hl"><span class="cn">真实任务</span> <span class="en">REAL TASKS</span></span>
+        <span class="badge"><span class="cn">可复现</span> <span class="en">REPRODUCIBLE</span></span>
+        <span class="badge"><span class="cn">开源共创</span> <span class="en">OPEN SOURCE</span></span>
+        <span class="badge"><span class="cn">系统沉淀</span> <span class="en">WORK SYSTEM</span></span>
+      </div>
+      <div class="live-row">
+        <span class="live-tag"><span class="pulse-dot"></span>LIVE</span>
+        <span>今日访问 <b class="count-up" data-target="128">0</b> — VISITS</span>
+        <span>今日浏览 <b class="count-up" data-target="402">0</b> — PV</span>
+        <span>累计访问 <b class="count-up" data-target="18632">0</b> — VISITS</span>
+        <span>累计浏览 <b class="count-up" data-target="74510">0</b> — PV</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reading-path">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-kicker">READING PATH / 01—04</p>
+        <h2>四段路径,按你的目标进入</h2>
+        <p class="sub">从个人上手到组织落地,循序渐进,构建你的 DeepSeek Harness 工作系统。</p>
+      </div>
+      <div class="path-grid">
+        <a class="path-card" href="./bluebook.html#part-01">
+          <div class="path-part"><span>PART 01</span><span class="ch">CH. 01—08</span></div>
+          <h3>从 0 到 1:先把 Harness 用起来</h3>
+          <p>下载启动、Web UI、模型配置、第一个任务、沙箱权限与后台任务。</p>
+          <span class="tag">新手推荐先完成一项任务</span>
+        </a>
+        <a class="path-card" href="./bluebook.html#part-02">
+          <div class="path-part"><span>PART 02</span><span class="ch">CH. 09—17</span></div>
+          <h3>真实任务:让 agent 开始干活</h3>
+          <p>命令行、文件代码、调研搜索、子代理、Skills、计划、长期目标与工作流。</p>
+          <span class="tag">9 个案例任务驱动</span>
+        </a>
+        <a class="path-card" href="./bluebook.html#part-03">
+          <div class="path-part"><span>PART 03</span><span class="ch">CH. 18—22</span></div>
+          <h3>把案例变成可复用的能力</h3>
+          <p>插件架构、工具开发、LLM 适配器、防御性模式与事件/API 体系。</p>
+          <span class="tag">系统进阶 · 可靠自动化</span>
+        </a>
+        <a class="path-card" href="./bluebook.html#part-04">
+          <div class="path-part"><span>PART 04</span><span class="ch">CH. 23—24</span></div>
+          <h3>落到团队,组建 AI 团队</h3>
+          <p>从通用能力出发,设计多 agent 协作与适合岗位和行业的工作流。</p>
+          <span class="tag">团队落地 · 行业路线</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tasks" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-kicker">START WITH A REAL TASK</p>
+        <h2>你现在想让 AI 帮你做什么?</h2>
+        <p class="sub">不必从头读。带着问题进来,先跑通一个能验收的结果。</p>
+      </div>
+      <div class="task-grid">
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">🖥️</span>
+          <span class="t">代码与文件<small>CODE · FILES</small></span>
+        </a>
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">⚡</span>
+          <span class="t">命令与脚本<small>BASH · SCRIPTS</small></span>
+        </a>
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">🔍</span>
+          <span class="t">调研与搜索<small>RESEARCH · SEARCH</small></span>
+        </a>
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">📄</span>
+          <span class="t">文档与报告<small>DOCS · REPORTS</small></span>
+        </a>
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">🤝</span>
+          <span class="t">多代理协作<small>SUBAGENTS · TEAMS</small></span>
+        </a>
+        <a class="task-card" href="./bluebook.html#part-02">
+          <span class="task-ico">🎯</span>
+          <span class="t">长期目标<small>GOALS · PLANS</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pipe-wrap" id="pipeline">
+    <div class="container">
+      <div class="section" style="padding-bottom: 30px;">
+        <div class="section-head">
+          <p class="section-kicker">FROM TASK TO TEAM</p>
+          <h2>一次成功,不该只发生一次。</h2>
+          <p class="sub">蓝皮书真正关心的不是「AI 会什么」,而是如何把一个结果沉淀成稳定、可协作、可复用的工作系统。</p>
+        </div>
+      </div>
+      <div class="pipe-steps">
+        <div class="pipe-step">
+          <div class="pipe-num">01 · TASK</div>
+          <h3>完成一个真实任务</h3>
+          <p>让 Harness 跑通一个你能验收的结果。</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">02 · CASE</div>
+          <h3>复盘成可复现案例</h3>
+          <p>记录场景、权限、步骤与验收标准。</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">03 · WORKFLOW</div>
+          <h3>沉淀 Skill 与自动化</h3>
+          <p>把做法固化为可复用能力与工作流。</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">04 · AI TEAM</div>
+          <h3>组合成协作团队</h3>
+          <p>子代理分工,多角色并行推进目标。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="community">
+    <div class="container">
+      <p class="kicker">BUILD IN PUBLIC · LEARN IN PUBLIC</p>
+      <h2>这本蓝皮书,也可以由你继续写下去。</h2>
+      <p>DeepSeek Harness 是开源项目,文档、案例与经验都欢迎通过 Issue、PR 与社区共创持续生长。</p>
+      <div>
+        <a class="btn btn-primary" href="./cases.html">参与共创</a>
+        <a class="btn btn-ghost" href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">前往 GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">发现内容可以改进?在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness/issues" target="_blank" rel="noopener">提出 Issue</a> 或提交 Pull Request。</p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

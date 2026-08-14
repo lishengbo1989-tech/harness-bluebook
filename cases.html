@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH 案例,社区案例,AI Agent 实践,子代理,自动化" />
+  <meta name="description" content="DSH 社区案例集:由 DeepSeek Harness 用户提交的真实实践,说明场景、用到的能力、执行过程与交付结果。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DSH 社区案例集｜DSH 实战蓝皮书" />
+  <title>DSH 社区案例集｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#featured">精选案例</a></li>
+          <li><a href="#how-to-submit">如何提交 Case</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <h1>DSH 社区案例集</h1>
+      <p class="doc-lead">
+        这里收录由 DeepSeek Harness 用户提交的真实实践。每个案例都会说明它解决了什么场景、
+        使用了哪些能力、在 Harness 中怎样执行,以及最终交付了什么结果。
+      </p>
+      <div class="note">
+        <div class="note-title">说明</div>
+        以下为社区<strong>示例案例</strong>与投稿模板展示。社区案例通过完整性、安全性和可读性审核后即可发布;
+        经过进一步复现和编辑的经典任务,未来可能被收录进《DSH 实战蓝皮书》正文。
+      </div>
+
+      <h2 id="featured"><span class="hash">#</span>精选案例</h2>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="case-badge">示例 · 已复现</span>
+          <div class="case-tags"><span>CODE</span><span>BASH</span><span>REVIEW</span></div>
+          <h3>审计一个仓库:依赖、安全与遗留问题</h3>
+          <p>让 Harness 读取仓库结构,列出所有依赖包,标记过时与高危项,并生成一份可执行的整改清单。</p>
+          <div class="case-result"><b>结果:</b> 30 分钟内产出依赖审计报告 + 按优先级排序的修复建议,人工确认后分批执行。</div>
+        </article>
+
+        <article class="case-card">
+          <span class="case-badge">示例 · 已复现</span>
+          <div class="case-tags"><span>FILES</span><span>SCRIPTS</span></div>
+          <h3>批量整理下载目录:重命名、归档与去重</h3>
+          <p>按文件类型与日期规则批量重命名、归档,并识别重复文件。先输出干跑计划,人工确认后执行。</p>
+          <div class="case-result"><b>结果:</b> 整理 300+ 文件,零误删;规则沉淀为可复用 Skill,下次一键执行。</div>
+        </article>
+
+        <article class="case-card">
+          <span class="case-badge">示例 · 已复现</span>
+          <div class="case-tags"><span>SUBAGENTS</span><span>PARALLEL</span></div>
+          <h3>用子代理并行调研三份竞品报告</h3>
+          <p>为每个竞品启动一个后台子代理独立调研,主会话汇总交叉验证,输出对比表格与结论。</p>
+          <div class="case-result"><b>结果:</b> 并行完成三路调研,汇总报告含来源引用;单路失败不阻塞整体。</div>
+        </article>
+
+        <article class="case-card">
+          <span class="case-badge">示例 · 社区投稿</span>
+          <div class="case-tags"><span>GOALS</span><span>PLAN</span></div>
+          <h3>长期目标:持续改进一个开源小项目</h3>
+          <p>把「改进项目」拆成多轮目标:分析 → 设计 → 实现 → 测试 → 文档,每轮验收后自动续跑下一轮。</p>
+          <div class="case-result"><b>结果:</b> 多轮续跑完成 3 个 feature + 测试 + 文档,全程留痕可回溯。</div>
+        </article>
+      </div>
+
+      <h2 id="how-to-submit"><span class="hash">#</span>如何提交 Case</h2>
+      <ol class="steps">
+        <li><b>先搜索确认没有重复。</b>核对社区 Case 与蓝皮书目录,确认场景或任务没有重复。</li>
+        <li><b>复制标准模板。</b>按模板写清:场景、使用的能力、操作过程、实际效果与验收标准。</li>
+        <li><b>提交 Pull Request。</b>审核合并后,会自动出现在案例目录与案例集列表中。</li>
+      </ol>
+      <div class="note warn">
+        <div class="note-title">提交前请自行检查</div>
+        如果已有 Case 使用相同目标和流程,请优先补充原案例;如果使用了不同的能力、方法或交付方式,请在 PR 中明确说明差异。
+      </div>
+      <p>
+        <a class="btn btn-primary" href="https://github.com/deepseek-ai/DeepSeek-Harness/issues" target="_blank" rel="noopener">提交你的 Case ↗</a>
+        <a class="btn btn-ghost" href="./bluebook.html">阅读蓝皮书</a>
+      </p>
+
+      <h2 style="margin-top:52px;"><span class="hash">#</span>从社区案例到蓝皮书正文</h2>
+      <p>
+        我们会持续观察案例的可复现性、代表性和读者反馈。通过二次验证的经典任务,
+        将在保留原作者署名的前提下进入蓝皮书正式章节。
+      </p>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

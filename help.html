@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,使用场景,场景问卷,求助,AI Agent" />
+  <meta name="description" content="有工作场景不知道如何用 DeepSeek Harness 解决?告诉我们你的真实问题,我们会评估解决路径并尝试做成可复现案例。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="帮你解决 DSH 使用场景问题｜DSH 实战蓝皮书" />
+  <title>帮你解决 DSH 使用场景问题｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html" class="active">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html" class="active">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#submit">提交你的场景</a></li>
+          <li><a href="#how-it-works">提交之后,我们会怎么做</a></li>
+          <li><a href="#what-to-prepare">怎样描述问题,更容易得到帮助</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="section-kicker" style="margin-bottom: 8px;">SCENARIO SUPPORT · OPEN CASES</p>
+      <h1>有工作场景,不知道怎么用 DeepSeek Harness 解决?</h1>
+      <p class="doc-lead">
+        把你的真实问题告诉我们。我们会阅读每一份场景问卷,评估 Harness 是否能够解决;
+        如果需要补充信息,我们会联系你进一步沟通。
+      </p>
+      <p>
+        具有代表性和复用价值的问题,我们会尝试做成完整 Case,写清使用的能力、操作过程、任务描述和最终效果,
+        并开源到社区案例集,帮助更多遇到同类问题的人。
+      </p>
+
+      <h2 id="submit"><span class="hash">#</span>提交你的场景</h2>
+      <div class="qr-panel">
+        <div class="qr-box">DSH 蓝皮书<br>场景问卷<br>(示例占位)</div>
+        <div class="qr-text">
+          <b>01 · DeepSeek Harness 场景收集问卷</b>
+          <p>复制右侧问卷文本,通过 <a href="https://github.com/deepseek-ai/DeepSeek-Harness/issues/new" target="_blank" rel="noopener">GitHub Issue</a>
+            或社区讨论区提交你的真实需求。</p>
+          <button class="btn btn-primary copy-btn" id="copy-btn">📋 复制问卷文本</button>
+          <span id="copy-ok">✓ 已复制</span>
+        </div>
+      </div>
+
+      <pre id="survey-text" style="display:none;">【DSH 场景问卷】
+1. 真实场景:你在什么岗位或任务中遇到了问题?
+2. 当前做法:现在需要哪些步骤,大概花多少时间?
+3. 输入资料:通常会用到哪些文件、网页、系统或数据?
+4. 期望结果:希望 Harness 最终交付什么,以及怎样算完成?
+5. 安全边界:是否涉及账号权限、敏感数据、文件修改或对外发布?</pre>
+
+      <h2 id="how-it-works"><span class="hash">#</span>提交之后,我们会怎么做</h2>
+      <div class="solve-grid">
+        <div class="solve-card">
+          <div class="s-no">01</div>
+          <h3>理解你的场景</h3>
+          <p>了解你现在怎样工作、卡在哪里、已有输入以及希望得到什么结果。</p>
+        </div>
+        <div class="solve-card">
+          <div class="s-no">02</div>
+          <h3>评估解决路径</h3>
+          <p>判断 Harness 是否适合处理,并梳理可能需要的权限、技能和交付方式。</p>
+        </div>
+        <div class="solve-card">
+          <div class="s-no">03</div>
+          <h3>联系与验证</h3>
+          <p>如果场景需要更多信息,我们会通过你留下的联系方式与你确认,并验证方案。</p>
+        </div>
+        <div class="solve-card">
+          <div class="s-no">04</div>
+          <h3>制作开源 Case</h3>
+          <p>具有通用价值的解决方案会被整理成可复现 Case,审核后公开到社区案例集。</p>
+        </div>
+      </div>
+
+      <h2 id="what-to-prepare"><span class="hash">#</span>怎样描述问题,更容易得到帮助</h2>
+      <ul>
+        <li><b>真实场景:</b>你在什么岗位或任务中遇到了问题。</li>
+        <li><b>当前做法:</b>现在需要哪些步骤,大概花多少时间。</li>
+        <li><b>输入资料:</b>通常会用到哪些文件、网页、系统或数据。</li>
+        <li><b>期望结果:</b>希望 Harness 最终交付什么,以及怎样算完成。</li>
+        <li><b>安全边界:</b>是否涉及账号权限、敏感数据、文件修改或对外发布。</li>
+      </ul>
+      <div class="note warn">
+        <div class="note-title">关于隐私与联系</div>
+        请不要在问卷中提交密码、密钥、客户隐私或不方便公开的内部资料。
+        我们只会在需要补充信息或可以推进解决方案时,通过你主动留下的联系方式与你沟通。
+      </div>
+
+      <h2><span class="hash">#</span>等不及?直接看官方资料</h2>
+      <div class="link-cards">
+        <a class="link-card" href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">
+          <div class="lc-k">OFFICIAL · README</div>
+          <div class="lc-t">DeepSeek Harness 官方仓库</div>
+          <div class="lc-d">安装方式、社区入口与贡献指南。</div>
+        </a>
+        <a class="link-card" href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">
+          <div class="lc-k">COMMUNITY · DISCUSSIONS</div>
+          <div class="lc-t">GitHub Discussions</div>
+          <div class="lc-d">提问、反馈与功能讨论。</div>
+        </a>
+        <a class="link-card" href="./reading-guide.html">
+          <div class="lc-k">BLUEBOOK · GUIDE</div>
+          <div class="lc-t">阅读指南</div>
+          <div class="lc-d">按你的角色与任务选择学习路线。</div>
+        </a>
+        <a class="link-card" href="./cases.html">
+          <div class="lc-k">BLUEBOOK · CASES</div>
+          <div class="lc-t">社区案例集</div>
+          <div class="lc-d">看看别人怎么用 Harness 解决类似问题。</div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

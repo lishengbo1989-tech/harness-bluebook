@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH 教程,蓝皮书,AI Agent,子代理,Skills,插件,自动化,多智能体" />
+  <meta name="description" content="DSH 实战蓝皮书目录:四篇二十四章,从安装上手、真实案例、系统进阶到团队落地,逐步构建你的 DeepSeek Harness 工作系统。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="开始阅读｜DSH 实战蓝皮书" />
+  <title>开始阅读｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">蓝皮书目录</div>
+        <ul>
+          <li><a href="#part-01">第一篇 · 使用手册</a></li>
+          <li><a href="#part-02">第二篇 · 案例篇</a></li>
+          <li><a href="#part-03">第三篇 · 进阶篇</a></li>
+          <li><a href="#part-04">第四篇 · 落地篇</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <h1>DSH 实战蓝皮书</h1>
+      <p class="doc-lead">
+        以真实工作为主线的 DeepSeek Harness 实践路径:先用起来,再沉淀为可复用的工作系统。
+        本目录为社区规划路线,已发布章节基于官方文档整理;其余章节欢迎认领写作。
+      </p>
+
+      <div class="badge-row" style="justify-content:flex-start; margin-top:0; margin-bottom: 8px;">
+        <span class="badge hl"><span class="cn">已发布</span></span>
+        <span class="badge" style="color: var(--ok); border-color: rgba(124,227,139,.4);"><span class="cn">编写中</span></span>
+        <span class="badge"><span class="cn">规划中</span></span>
+      </div>
+
+      <section class="chapter-group" id="part-01">
+        <div class="chapter-group-head">
+          <span class="part">PART 01</span>
+          <h2>第一篇 使用手册:先把 Harness 用起来</h2>
+          <span class="range">CH. 01—08</span>
+        </div>
+        <ul class="chapter-list">
+          <li id="ch-01"><span class="chapter-no">CH. 01</span><span class="ch-name">初识 DeepSeek Harness:能做什么,不能做什么<span class="ch-desc">定位、边界与「一切皆插件」的架构直觉。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-02"><span class="chapter-no">CH. 02</span><span class="ch-name">下载、安装与启动<span class="ch-desc">安装 Node.js,运行 npx @deepseek-ai/dsh web,打开 http://127.0.0.1:3080。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-03"><span class="chapter-no">CH. 03</span><span class="ch-name">Web UI 漫游:会话、工作区与设置<span class="ch-desc">认识主界面三块区域,理解「选择工作区」为什么是第一步。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-04"><span class="chapter-no">CH. 04</span><span class="ch-name">配置模型提供方<span class="ch-desc">设置 → 模型:DeepSeek API 密钥、其他提供方与 OpenAI 兼容端点。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-05"><span class="chapter-no">CH. 05</span><span class="ch-name">第一个任务:让 agent 跑通一次真实操作<span class="ch-desc">选一个能验收的小任务,理解工具调用、计划与审批的完整回路。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-06"><span class="chapter-no">CH. 06</span><span class="ch-name">沙箱与权限:workspace-write 与 danger-full-access<span class="ch-desc">文件策略、命令审批与权限升级的边界意识。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-07"><span class="chapter-no">CH. 07</span><span class="ch-name">后台任务与并行工作<span class="ch-desc">长任务后台化、job 收集与停止,不阻塞主线工作。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-08"><span class="chapter-no">CH. 08</span><span class="ch-name">CLI 与 Python SDK<span class="ch-desc">不打开浏览器也能驱动 Harness,脚本化你的工作流。</span></span><span class="ch-status">规划中</span></li>
+        </ul>
+      </section>
+
+      <section class="chapter-group" id="part-02">
+        <div class="chapter-group-head">
+          <span class="part">PART 02</span>
+          <h2>第二篇 案例篇:从一项任务到一支 AI 团队</h2>
+          <span class="range">CH. 09—17</span>
+        </div>
+        <ul class="chapter-list">
+          <li id="ch-09"><span class="chapter-no">CH. 09</span><span class="ch-name">用 bash 执行命令与脚本<span class="ch-desc">环境探测、命令执行、输出解读与常见坑。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-10"><span class="chapter-no">CH. 10</span><span class="ch-name">文件读写与代码编辑<span class="ch-desc">read / write / edit / glob / grep:安全地改代码与整理文件。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-11"><span class="chapter-no">CH. 11</span><span class="ch-name">调研与搜索:web_search 与资料整理<span class="ch-desc">把开放信息变成可引用的调研结论。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-12"><span class="chapter-no">CH. 12</span><span class="ch-name">子代理:subagent 委派与 fork<span class="ch-desc">后台委派、fork 继承上下文、结果收集与打断。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-13"><span class="chapter-no">CH. 13</span><span class="ch-name">技能:Skills 目录与加载<span class="ch-desc">按任务加载技能,让 agent 拥有领域操作手册。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-14"><span class="chapter-no">CH. 14</span><span class="ch-name">计划模式:先规划后执行<span class="ch-desc">复杂任务先出计划再动手,减少返工。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-15"><span class="chapter-no">CH. 15</span><span class="ch-name">长期目标:goal 多轮续跑<span class="ch-desc">把一个目标拆成多个轮次持续推进,直到真正完成。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-16"><span class="chapter-no">CH. 16</span><span class="ch-name">工作流编排:pipeline / parallel / phases<span class="ch-desc">用脚本把多个子代理组织成有阶段、有产出的流水线。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-17"><span class="chapter-no">CH. 17</span><span class="ch-name">代码审查与维护实践<span class="ch-desc">让 Harness 参与 review、修 bug 与日常维护。</span></span><span class="ch-status">规划中</span></li>
+        </ul>
+      </section>
+
+      <section class="chapter-group" id="part-03">
+        <div class="chapter-group-head">
+          <span class="part">PART 03</span>
+          <h2>第三篇 进阶篇:把案例变成可复用的工作系统</h2>
+          <span class="range">CH. 18—22</span>
+        </div>
+        <ul class="chapter-list">
+          <li id="ch-18"><span class="chapter-no">CH. 18</span><span class="ch-name">一切皆插件:认识 Cordis 架构<span class="ch-desc">Harness 的插件化内核与「时间空间可组合」的设计思想。</span></span><span class="ch-status done">已发布</span></li>
+          <li id="ch-19"><span class="chapter-no">CH. 19</span><span class="ch-name">开发第一个工具与插件<span class="ch-desc">从 cookbook 出发,给 Harness 添加自定义能力。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-20"><span class="chapter-no">CH. 20</span><span class="ch-name">添加 LLM 适配器与自定义端点<span class="ch-desc">接入私有模型与 OpenAI 兼容服务。</span></span><span class="ch-status wip">编写中</span></li>
+          <li id="ch-21"><span class="chapter-no">CH. 21</span><span class="ch-name">防御性模式:审批、回退与安全边界<span class="ch-desc">让自动化在不可逆操作前停下,并设计失败回退。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-22"><span class="chapter-no">CH. 22</span><span class="ch-name">事件、持久化与 API 网关<span class="ch-desc">理解会话、状态与对外接口,把 Harness 嵌入更大系统。</span></span><span class="ch-status">规划中</span></li>
+        </ul>
+      </section>
+
+      <section class="chapter-group" id="part-04">
+        <div class="chapter-group-head">
+          <span class="part">PART 04</span>
+          <h2>第四篇 落地篇:落到岗位与行业,组建 AI 团队</h2>
+          <span class="range">CH. 23—24</span>
+        </div>
+        <ul class="chapter-list">
+          <li id="ch-23"><span class="chapter-no">CH. 23</span><span class="ch-name">多 agent 协作:组建你的 AI 团队<span class="ch-desc">角色分工、任务拆解与人工闸门设计。</span></span><span class="ch-status">规划中</span></li>
+          <li id="ch-24"><span class="chapter-no">CH. 24</span><span class="ch-name">行业实践与案例沉淀<span class="ch-desc">从真实岗位出发,把成功案例固化为团队资产。</span></span><span class="ch-status">规划中</span></li>
+        </ul>
+      </section>
+
+      <div class="note">
+        <div class="note-title">认领写作</div>
+        想参与蓝皮书共创?从<a href="./reading-guide.html#contribute">阅读指南 → 参与共创</a>了解流程,或直接前往
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness/issues" target="_blank" rel="noopener">GitHub Issues</a> 提出你的选题。
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>
