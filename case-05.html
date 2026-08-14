@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="开源项目 README 陈旧?分析现状、调研优秀范例、重写并本地验证,顺手完成全库文档一致性检查。" />
+  <title>重写并维护项目 README 与文档｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 重写并维护项目 README 与文档</p>
+      <p class="section-kicker">CASE · DOCS</p>
+      <h1>重写并维护项目 README 与文档</h1>
+      <div class="case-tags"><span>DOCS</span><span>FILES</span><span>RESEARCH</span></div>
+      <p class="doc-lead">README 停在两年前,新用户照着跑不起来?分析现状、调研优秀范例、重写并验证,一次 PR 解决。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>开源项目 README 陈旧:安装命令已失效、FAQ 缺失,新用户上手困难。目标是重写 README 并顺手做一次全库文档一致性检查,让文档跟得上代码。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>文件工具:</strong>用 read / write / edit 重写文档,grep 扫描旧链接与失效引用。</li>
+        <li><strong>web_search:</strong>调研同类优秀开源项目的 README 结构与措辞。</li>
+        <li><strong>bash:</strong>本地构建与命令验证,确保文档里的步骤真实可跑。</li>
+        <li><strong>版本管理:</strong>改动落到分支提 PR,方便评审与回溯。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>分析现状。</b>read 现有 README,列出过时命令与缺失章节;grep 扫全库旧文档链接。</li>
+        <li><b>调研参考。</b>用 web_search 查看 3–5 个优秀开源 README 的结构与写法。</li>
+        <li><b>重写文档。</b>按「简介 → 快速开始 → 配置 → FAQ → 贡献」重写,命令逐一本地验证。</li>
+        <li><b>构建检查。</b>bash 跑文档构建与预览,确认没有死链。</li>
+        <li><b>提交 PR。</b>改动进分支,附变更说明,供维护者评审。</li>
+      </ol>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>README 重构完成,新用户按「快速开始」约 10 分钟跑通;文档一致性检查发现并修复 6 处旧链接与失效命令。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>README 结构完整:简介 / 快速开始 / 配置 / FAQ / 贡献。</li>
+        <li>所有命令经本地验证;拿不准的功能注明「参见官方文档」。</li>
+        <li>旧链接清零,PR 可评审。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「文档写作 checklist」:</strong>结构清单、命令验证项、链接检查项、术语一致性项;可复用于任何文档任务。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        重写文档不改变代码行为,但命令必须真实可跑。不要虚构不存在的 UI 文案或功能,拿不准就链接官方仓库,参见官方文档。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-04.html">← 其他案例 长期目标:持续改进一个开源小项目</a>
+        <a class="cn-next" href="./case-06.html">其他案例 每周自动化巡检:依赖与安全告警汇总 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

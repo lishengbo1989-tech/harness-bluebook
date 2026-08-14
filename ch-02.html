@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,安装,Node.js,npx,Web UI,3080,蓝皮书" />
+  <meta name="description" content="DeepSeek Harness(dsh)下载安装教程:环境要求、通过 npx 一键启动 Web UI、从源码构建运行,以及常见问题排查。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 2 章 下载、安装与启动｜DSH 实战蓝皮书" />
+  <title>下载、安装与启动｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#env">环境要求</a></li>
+          <li><a href="#npm-start">通过 npm 启动</a></li>
+          <li><a href="#source">从源码运行</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#next-step">下一步</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-01">第一篇</a> → 第 2 章</p>
+      <p class="section-kicker">PART 01 · CH. 02</p>
+      <h1>下载、安装与启动</h1>
+      <p class="doc-lead">本章解决从零开始的问题:检查环境、启动 dsh 的 Web UI,并知道出问题时去哪里排查,为第 4 章配置模型做好准备。</p>
+
+      <h2 id="env"><span class="hash">#</span>环境要求</h2>
+      <p><strong>DeepSeek Harness</strong>(简称 <code>dsh</code>)是 DeepSeek AI 开源的 Agent 框架,架构上「一切皆插件」、由 Cordis 驱动。安装运行它只需要一个前提:<strong>Node.js 运行时</strong>。</p>
+      <ul>
+        <li><strong>Node.js。</strong>dsh 的启动与运行都基于 Node.js,先确保本机有可用的 Node.js 环境。</li>
+        <li><strong>按需准备 git 与 pnpm。</strong>走 npx 方式不需要它们;从源码构建才需要(见下文)。</li>
+      </ul>
+      <p>Node.js 的具体版本要求会随版本演进,拿不准时以<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">官方仓库</a>的说明为准。</p>
+
+      <h2 id="npm-start"><span class="hash">#</span>通过 npm 启动</h2>
+      <p>最省事的启动方式是 npx——一条命令拉取并运行 dsh,启动 Web UI:</p>
+      <pre class="codeblock"><code>npx @deepseek-ai/dsh web</code></pre>
+      <p>Web UI 的默认地址是 <code>http://127.0.0.1:3080</code>;首次运行会在终端打印访问地址,把它复制到浏览器打开即可。完整走一遍:</p>
+      <ol class="steps">
+        <li><b>确认 Node.js。</b>在终端运行 <code>node -v</code>,能输出版本号即可。</li>
+        <li><b>启动。</b>运行 <code>npx @deepseek-ai/dsh web</code>,等待启动完成。</li>
+        <li><b>打开地址。</b>浏览器访问 <code>http://127.0.0.1:3080</code>,看到 Web UI 即启动成功。</li>
+      </ol>
+
+      <h2 id="source"><span class="hash">#</span>从源码运行</h2>
+      <p>想跟紧开发进度、阅读源码或参与贡献,可以从源码构建,四个步骤:</p>
+      <pre class="codeblock"><code>git clone https://github.com/deepseek-ai/deepseek-harness.git
+pnpm install
+pnpm run build
+pnpm dsh web</code></pre>
+      <p>克隆官方仓库、安装依赖、构建,最后用 <code>pnpm dsh web</code> 启动,访问地址同样是默认的 <code>http://127.0.0.1:3080</code>。</p>
+
+      <h2 id="faq"><span class="hash">#</span>常见问题</h2>
+      <ul>
+        <li><strong>端口被占用。</strong>默认地址 <code>http://127.0.0.1:3080</code> 打不开,通常是该端口已被其他进程占用;先排查占用进程,端口相关配置参见官方文档。</li>
+        <li><strong>npx 缓存异常。</strong>拉取到旧版本或行为与文档不一致时,清理 npx 缓存后重试,具体方法参见官方文档。</li>
+        <li><strong>版本差异。</strong>当前处于开发者预览阶段,会有破坏性变更,升级后行为可能变化,以官方发布说明为准。</li>
+      </ul>
+      <div class="note">
+        <div class="note-title">拿不准就看官方</div>
+        本文只覆盖安装主路径,Node.js 版本、端口、缓存等细节在不同环境下可能不同;遇到不一致,优先查阅
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">DeepSeek Harness 官方仓库</a>。
+      </div>
+
+      <h2 id="next-step"><span class="hash">#</span>下一步</h2>
+      <p>Web UI 已经跑起来,但它还不能干活——dsh 需要先接上模型提供方。建议先快速浏览<a href="./bluebook.html#ch-03">第 3 章 Web UI 漫游</a>熟悉界面,再进入<a href="./bluebook.html#ch-04">第 4 章 配置模型提供方</a>填入 API 密钥。</p>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./bluebook.html#ch-01">← 第 1 章 初识 DeepSeek Harness</a>
+        <a class="cn-next" href="./bluebook.html#ch-03">第 3 章 Web UI 漫游 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

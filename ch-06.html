@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,沙箱,权限,workspace-write,danger-full-access,审批,fail-closed,蓝皮书" />
+  <meta name="description" content="DeepSeek Harness 沙箱与权限:默认 workspace-write 策略、危险操作的审批与 danger-full-access 升级,以及 fail-closed 下的权限意识清单。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 6 章 沙箱与权限｜DSH 实战蓝皮书" />
+  <title>沙箱与权限:workspace-write 与 danger-full-access｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#why-sandbox">为什么需要沙箱</a></li>
+          <li><a href="#default-policy">默认策略:workspace-write</a></li>
+          <li><a href="#approval-escalation">审批与升级</a></li>
+          <li><a href="#permission-checklist">权限意识清单</a></li>
+          <li><a href="#next-step">下一步</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-01">第一篇</a> → 第 6 章</p>
+      <p class="section-kicker">PART 01 · CH. 06</p>
+      <h1>沙箱与权限:workspace-write 与 danger-full-access</h1>
+      <p class="doc-lead">本章解决「敢不敢放手」的问题:理解默认的沙箱策略、什么操作会触发审批,以及升级权限意味着什么。</p>
+
+      <h2 id="why-sandbox"><span class="hash">#</span>为什么需要沙箱</h2>
+      <p>agent 能读写文件、运行命令,能力越强越需要边界。沙箱把它的动作约束在<strong>会话工作区</strong>内,避免一次误操作波及系统目录、个人文件或敏感数据——这是「放权给 agent」之前必须理解的一层。</p>
+
+      <h2 id="default-policy"><span class="hash">#</span>默认策略:workspace-write</h2>
+      <p>dsh 的默认权限策略是 <code>workspace-write</code>:agent 可以<strong>读写会话工作区</strong>内的文件。工作区之外的操作属于越界,默认不会静默放行,而是走向审批流程:</p>
+      <pre class="codeblock"><code>默认策略:workspace-write
+升级后:danger-full-access</code></pre>
+
+      <h2 id="approval-escalation"><span class="hash">#</span>审批与升级</h2>
+      <p><strong>危险操作或越界操作会触发审批</strong>,Web UI 会先询问你,而不是直接执行;要升级到 <code>danger-full-access</code>,<strong>必须说明理由</strong>。还有一个关键点:审批策略可能 <strong>fail-closed</strong>——无应答即拒绝,也就是说没人批准时,操作默认不会执行,而不是默认放行。</p>
+
+      <h2 id="permission-checklist"><span class="hash">#</span>权限意识清单</h2>
+      <ul>
+        <li><strong>读写边界。</strong>始终清楚哪些目录可写;工作区之外的文件操作,先想清楚为什么要做。</li>
+        <li><strong>命令风险。</strong>删除、覆盖、批量修改、网络访问类命令,先看它要做什么、影响面多大。</li>
+        <li><strong>敏感数据。</strong>密钥、令牌、个人数据不要写进工作区文件,也不要让 agent 打印到日志。</li>
+        <li><strong>外部发布。</strong>推送、发布、对外通知等操作,保留人工确认闸门。</li>
+      </ul>
+      <div class="note warn">
+        <div class="note-title">审批不是摆设</div>
+        fail-closed 意味着「没人点头就不做」。升级到 danger-full-access 之前,先问自己:这个操作真的需要吗?有没有更小的替代方案?
+      </div>
+
+      <h2 id="next-step"><span class="hash">#</span>下一步</h2>
+      <p>理解了边界,就可以放心地让 agent 动手了。<a href="./ch-09.html">第 9 章 用 bash 执行命令与脚本</a>会带你实际使用命令执行能力,包括如何把长命令放到后台运行、如何收集与停止它们。</p>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./ch-05.html">← 第 5 章 第一个任务</a>
+        <a class="cn-next" href="./ch-09.html">第 9 章 用 bash 执行命令与脚本 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

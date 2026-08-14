@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="把「改进开源小项目」拆成多轮可验收的长期目标,每轮验收后自动续跑,全程留痕可回溯。" />
+  <title>长期目标:持续改进一个开源小项目｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 长期目标:持续改进一个开源小项目</p>
+      <p class="section-kicker">CASE · GOALS</p>
+      <h1>长期目标:持续改进一个开源小项目</h1>
+      <div class="case-tags"><span>GOALS</span><span>PLAN</span></div>
+      <p class="doc-lead">「改进项目」太空泛?把它拆成多轮可验收的目标,每轮验收后自动续跑,全程留痕可回溯。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>开源小项目想持续改进,但「改进」太宽泛,往往做一轮就停。目标是拆成多轮自动推进的过程:分析 → 设计 → 实现 → 测试 → 文档,每轮都有产出与留痕,而不是一次性的冲动改造。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>长期目标:</strong>create_goal 建立目标,update_goal 记录进度,get_goal 查询状态;支持多轮自动续跑。</li>
+        <li><strong>计划模式:</strong>先规划再动手,exit_plan_mode 提交计划供确认。</li>
+        <li><strong>文件工具:</strong>用 read / write / edit 落地代码与测试,先读后改。</li>
+        <li><strong>bash:</strong>运行测试与构建,检查退出码,失败先调查再继续。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>拆解目标。</b>create_goal 把大目标拆成「分析 → 设计 → 实现 → 测试 → 文档」多轮。</li>
+        <li><b>计划先行。</b>进入计划模式,每轮先提交计划,确认后再执行。</li>
+        <li><b>逐轮推进。</b>一轮一个可验收产出;验收通过后用 update_goal 记录进度并续跑下一轮。</li>
+        <li><b>留痕回溯。</b>用 get_goal 查看当前状态;每轮产出写入仓库,便于回看。</li>
+      </ol>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>连续多轮完成 3 个 feature,配套测试与文档同步更新;每轮验收通过自动进入下一轮,全程留痕可回溯。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>每一轮都有具体产出(代码 / 测试 / 文档)与记录。</li>
+        <li>get_goal 可随时查到目标状态与进度。</li>
+        <li>同一阻塞持续多轮才标记 blocked,不轻易放弃。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「长期目标拆解模板」:</strong>大目标 → 可验收轮次(分析 / 设计 / 实现 / 测试 / 文档)→ 每轮验收标准 → 续跑条件;适配任何想持续推进的项目。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        自动续跑不等于无人值守;破坏性变更仍会触发审批。目标范围过大时及时用 update_goal 收敛,避免无限续跑。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-03.html">← 其他案例 用子代理并行调研三份竞品报告</a>
+        <a class="cn-next" href="./case-05.html">其他案例 重写并维护项目 README 与文档 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

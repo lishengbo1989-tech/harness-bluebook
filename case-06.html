@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="每周手动检查依赖、安全公告与构建状态太麻烦。用 workflow 脚本把它变成一条命令的自动巡检,自动产出周报。" />
+  <title>每周自动化巡检:依赖与安全告警汇总｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 每周自动化巡检:依赖与安全告警汇总</p>
+      <p class="section-kicker">CASE · BASH</p>
+      <h1>每周自动化巡检:依赖与安全告警汇总</h1>
+      <div class="case-tags"><span>BASH</span><span>WORKFLOW</span><span>AUTOMATION</span></div>
+      <p class="doc-lead">每周手动检查依赖、安全公告与构建状态太麻烦。用 workflow 脚本把它变成一条命令的自动巡检。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>每周都要手动确认「依赖有没有可升级、有没有新安全公告、构建还绿不绿」。目标是脚本化:一条命令跑完全部检查,自动产出带结论的巡检周报。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>工作流编排:</strong>workflow 用 JavaScript 脚本编排多路子检查,phase(title) 标记阶段进度。</li>
+        <li><strong>子代理:</strong>每路检查一个 agent,可带 schema 校验结构化结果。</li>
+        <li><strong>bash:</strong>依赖查询、构建命令与退出码检查。</li>
+        <li><strong>后台任务:</strong>整个巡检可 run_in_background 启动,完成后统一收集。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>写脚本。</b>编排四步:依赖版本检查、安全公告检查、构建状态检查、汇总报告。</li>
+        <li><b>分阶段执行。</b>用 phase("依赖检查") 等标记进度;每路一个独立 agent 并行跑。</li>
+        <li><b>后台运行。</b>整条巡检作为后台任务启动,不占用主会话。</li>
+        <li><b>汇总出报。</b>合并各路输出,生成含结论的巡检周报。</li>
+      </ol>
+
+      <pre class="codeblock"><code>phase("依赖检查");  // agent 跑 npm outdated
+phase("安全公告");  // agent 查 npm audit 与公告
+phase("构建状态");  // agent 跑构建并读退出码
+phase("汇总报告");  // 合并三路结果,生成周报</code></pre>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>每周在 Harness 里运行一次巡检脚本,自动产出周报:本周 5 个可升级依赖、1 条高危公告、构建通过;人工只需看结论决定是否升级。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>报告覆盖全部检查项,每项都有结论。</li>
+        <li>任一路失败会在报告中标出,不静默跳过。</li>
+        <li>脚本可重复运行,结果稳定。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「巡检 workflow 脚本模板」:</strong>含阶段定义(依赖 / 安全 / 构建 / 汇总)、每路 agent 的 prompt 与 schema 校验、结果合并逻辑;改改仓库路径即可复用。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        自动巡检以只读为主;升级依赖、改动仓库仍是需要审批与人工确认的动作。安全结论请以官方公告渠道为准。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-04.html">← 其他案例 长期目标:持续改进一个开源小项目</a>
+        <a class="cn-next" href="./case-05.html">其他案例 重写并维护项目 README 与文档 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

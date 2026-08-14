@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="300+ 文件的混乱下载目录,按类型与日期规则批量归档、重命名与去重;先干跑、后确认、再执行,零误删。" />
+  <title>批量整理下载目录:重命名、归档与去重｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 批量整理下载目录:重命名、归档与去重</p>
+      <p class="section-kicker">CASE · FILES</p>
+      <h1>批量整理下载目录:重命名、归档与去重</h1>
+      <div class="case-tags"><span>FILES</span><span>SCRIPTS</span></div>
+      <p class="doc-lead">300+ 文件一团乱?按类型与日期规则批量归档、重命名、去重,先干跑、后确认、再执行。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>下载目录积压 300+ 文件:截图、安装包、文档、压缩包混在一起,命名混乱、重复文件多。目标是整理成清晰结构,规则可复用,而且绝不能误删任何文件。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>文件工具:</strong>用 glob 按扩展名枚举文件,read 查看干跑计划。</li>
+        <li><strong>bash:</strong>批量脚本执行移动 / 重命名 / 去重,并检查 exit code。</li>
+        <li><strong>编辑工具:</strong>用 write / edit 生成并修正整理脚本。</li>
+        <li><strong>审批感知:</strong>批量删除属破坏性操作,人工确认后才会真正执行。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>枚举清单。</b>用 glob 收集全部文件,按类型统计数量与体积。</li>
+        <li><b>设计规则。</b>按「类型 / 年-月」归档,统一命名规范,定义按哈希去重。</li>
+        <li><b>干跑计划。</b>生成「将移动 X → Y、将删除重复项 Z」的预览清单,不执行任何变更。</li>
+        <li><b>人工确认。</b>把清单交给用户核对,批准后再进入执行阶段。</li>
+        <li><b>执行复核。</b>bash 运行脚本,读输出核对数量,与预期清单逐项比对。</li>
+      </ol>
+
+      <pre class="codeblock"><code># 干跑计划示例(仅预览,不执行)
+移动 downloads/screenshot-2024-01-01.png → downloads/图片/2024-01/
+删除重复项 downloads/副本 (2).zip(与 副本.zip 哈希相同)
+统计:342 个文件 → 移动 296、删除 8、保留 38</code></pre>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>300+ 文件整理为「类型 / 日期」归档结构,删除 8 个重复文件,零误删;规则沉淀为 skill,下次一键执行。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>执行前清单与执行后目录结构一一对应。</li>
+        <li>误删为 0,删除项均有哈希佐证。</li>
+        <li>重命名与归档结果符合既定规则。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「干跑 - 确认 - 执行」模板:</strong>任何批量变更都先产出可读计划,人工确认后才落盘;可沉淀为 skill 反复使用。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        批量删除与移动前务必先看干跑清单。默认 workspace-write 只覆盖会话工作区,越界路径操作会触发审批;审批无应答时按 fail-closed 默认拒绝。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-01.html">← 其他案例 审计一个仓库:依赖、安全与遗留问题</a>
+        <a class="cn-next" href="./case-04.html">其他案例 长期目标:持续改进一个开源小项目 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

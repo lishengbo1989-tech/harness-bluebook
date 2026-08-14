@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,Cordis,插件,架构,可组合,蓝皮书" />
+  <meta name="description" content="第 18 章:一切皆插件——认识 Cordis 架构与可组合设计哲学,从官方文档与社区生态出发理解 DeepSeek Harness 的内核。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 18 章 一切皆插件:认识 Cordis 架构｜DSH 实战蓝皮书" />
+  <title>第 18 章 一切皆插件:认识 Cordis 架构｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#philosophy">设计哲学</a></li>
+          <li><a href="#concepts">核心概念</a></li>
+          <li><a href="#docs">从官方文档开始</a></li>
+          <li><a href="#ecosystem">插件生态</a></li>
+          <li><a href="#next">下一步</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-03">第三篇</a> → 第 18 章</p>
+      <p class="section-kicker">PART 03 · CH. 18</p>
+      <h1>一切皆插件:认识 Cordis 架构</h1>
+      <p class="doc-lead">Harness 的「一切皆插件」内核由 Cordis 驱动——理解它,你就理解了整个项目为什么这样组织。</p>
+
+      <h2 id="philosophy"><span class="hash">#</span>设计哲学</h2>
+      <p>DeepSeek Harness 的核心架构是「一切皆插件」:工具、模型适配器、功能包都以插件的形式存在,按需装配。项目论文《A Programming Paradigm for Spatiotemporal Composability》从「时间与空间可组合」的角度阐释了这一设计——能力像积木,可以跨时间、跨空间自由组合,系统因此保持精简又高度可扩展。</p>
+
+      <h2 id="concepts"><span class="hash">#</span>核心概念</h2>
+      <ul>
+        <li><b>一切皆插件。</b>没有铁板一块的巨石,能力都从插件获得。</li>
+        <li><b>Cordis 驱动。</b>插件的生命周期、依赖与通信由 Cordis 统一管理。</li>
+        <li><b>按需装配。</b>用到什么加载什么,系统保持精简、可扩展。</li>
+      </ul>
+
+      <h2 id="docs"><span class="hash">#</span>从官方文档开始</h2>
+      <p>想深入内核,官方仓库是最好的起点。先读 <code>docs/architecture.md</code> 把握整体架构,再看 <code>docs/development.md</code> 了解开发流程;<code>AGENTS.md</code> 描述了 agent 协作约定;想动手做东西,<code>docs/cookbook/</code> 里提供了 adding-a-tool、adding-a-package、adding-an-llm-adapter 等逐步教程;面向使用还有 <code>docs/user/guide/</code>(index、providers、python-sdk)与 <code>apps/cli</code>。</p>
+      <pre class="codeblock"><code>docs/architecture.md   # 整体架构
+docs/development.md    # 开发流程
+AGENTS.md              # agent 协作约定
+docs/cookbook/         # adding-a-tool / adding-a-package / adding-an-llm-adapter
+docs/user/guide/       # index / providers / python-sdk
+apps/cli               # CLI 入口</code></pre>
+      <div class="note">
+        <div class="note-title">以官方仓库为准</div>
+        项目当前处于开发者预览阶段(MIT 协议),文档与接口都可能发生破坏性变更。阅读时留意版本,拿不准的内容以
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub 官方仓库</a>为准。
+      </div>
+
+      <h2 id="ecosystem"><span class="hash">#</span>插件生态</h2>
+      <p>社区插件仓库建议加上 <code>dsh-plugin</code> topic,便于按主题被发现;社区维护的 awesome-dsh-plugin 列表收录了大量现成插件,动手之前先看看有没有能直接用的。遇到问题可以在 GitHub Discussions 提问,也可以去 Discord 和社区交流。</p>
+
+      <h2 id="next"><span class="hash">#</span>下一步</h2>
+      <p>理解了架构,就可以动手了:下一章「开发第一个工具与插件」,我们从 cookbook 出发,给 Harness 添加第一个自定义能力。</p>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./bluebook.html#ch-17">← 第 17 章 代码审查与维护实践</a>
+        <a class="cn-next" href="./bluebook.html#ch-19">第 19 章 开发第一个工具与插件 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

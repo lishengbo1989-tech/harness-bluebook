@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="用 DeepSeek Harness 对陌生仓库做只读审计:依赖、过时项、高危项与遗留问题,30 分钟内拿到带出处的整改清单。" />
+  <title>审计一个仓库:依赖、安全与遗留问题｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 审计一个仓库:依赖、安全与遗留问题</p>
+      <p class="section-kicker">CASE · CODE</p>
+      <h1>审计一个仓库:依赖、安全与遗留问题</h1>
+      <div class="case-tags"><span>CODE</span><span>BASH</span><span>REVIEW</span></div>
+      <p class="doc-lead">接手陌生仓库,先摸清依赖与风险,做一次只读审计,快速产出带出处的整改清单。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>接手一个停更近一年的仓库,需要快速回答三个问题:依赖有哪些、哪些已过时、有没有高危项与遗留问题(如弃用 API、TODO 标记)。目标是全程只读,产出一份按优先级排序的审计报告。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>文件工具:</strong>用 read / glob / grep 定位清单文件与遗留标记,只读优先。</li>
+        <li><strong>bash:</strong>执行版本与安全查询命令,检查 exit code 标记。</li>
+        <li><strong>后台任务:</strong>耗时查询用 run_in_background 启动,再用 job_output 收集。</li>
+        <li><strong>权限意识:</strong>默认 workspace-write 已够用;越界与危险操作会触发审批。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>盘点结构。</b>用 glob 找到 package.json 与锁文件,read 读取依赖清单与脚本字段。</li>
+        <li><b>查过时项。</b>用 bash 运行 <code>npm outdated</code> 与 <code>npm audit</code>,记录输出与退出码。</li>
+        <li><b>扫遗留问题。</b>用 grep 搜索 TODO、FIXME 与已弃用 API 的调用点,记录行号。</li>
+        <li><b>汇总成稿。</b>按「高 / 中 / 低」排序,每条结论附文件与命令出处,输出整改清单。</li>
+      </ol>
+
+      <pre class="codeblock"><code>审计这个仓库,输出四段式报告:
+1. 结构概览:主要包与模块
+2. 依赖健康度:过时项、高危项(附 npm audit 输出)
+3. 遗留问题:TODO / FIXME / 弃用 API 调用点
+4. 整改优先级:高 / 中 / 低,每条附出处</code></pre>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>约 25 分钟完成审计:找出 3 个高危依赖、12 个过时包、4 处遗留 TODO;报告带出处与优先级,确认后分批升级。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>报告含优先级排序,每条结论可追溯到具体文件或命令输出。</li>
+        <li>审计期间零文件改动。</li>
+
+        <li>整改清单可直接交给开发分批执行。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「仓库审计提示词模板」:</strong>输入仓库路径,输出结构概览、依赖健康度、遗留问题、整改优先级四段式报告;改改路径即可复用到任何仓库。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        审计以只读为主;不要在人工确认前运行 npm install / npm update 等会改动仓库的命令。破坏性操作会触发审批,审批无应答时按 fail-closed 默认拒绝。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-02.html">← 其他案例 批量整理下载目录</a>
+        <a class="cn-next" href="./case-03.html">其他案例 用子代理并行调研三份竞品报告 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,文件工具,read,write,edit,glob,grep,代码编辑,蓝皮书" />
+  <meta name="description" content="第 10 章:文件读写与代码编辑——read / write / edit / glob / grep 的正确用法,先读后改,安全地整理文件与修改代码。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 10 章 文件读写与代码编辑｜DSH 实战蓝皮书" />
+  <title>第 10 章 文件读写与代码编辑｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#tools">文件工具集</a></li>
+          <li><a href="#edit-habits">编辑的正确姿势</a></li>
+          <li><a href="#search">搜索与定位</a></li>
+          <li><a href="#example">一个完整例子</a></li>
+          <li><a href="#notes">注意</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-02">第二篇</a> → 第 10 章</p>
+      <p class="section-kicker">PART 02 · CH. 10</p>
+      <h1>文件读写与代码编辑</h1>
+      <p class="doc-lead">read / write / edit / glob / grep:安全地查看、修改与检索文件,让每一次改动都可控、可复核。</p>
+
+      <h2 id="tools"><span class="hash">#</span>文件工具集</h2>
+      <p>文件操作由五个工具分工完成,覆盖查看、写入、搜索三条链路:</p>
+      <ul>
+        <li><b>read</b> 按行号读取文件,支持 offset / limit 分段读大文件。</li>
+        <li><b>write</b> 创建新文件,或整体替换文件内容。</li>
+        <li><b>edit</b> 精确替换文件中的一段文本,适合小改动。</li>
+        <li><b>glob</b> 按路径模式列出文件,如 <code>**/*.md</code>。</li>
+        <li><b>grep</b> 按 ripgrep 正则搜索文件内容,返回命中行与行号。</li>
+      </ul>
+
+      <h2 id="edit-habits"><span class="hash">#</span>编辑的正确姿势</h2>
+      <p>核心习惯只有一条:<b>先读后改,小步提交</b>。文件观察策略默认要求在修改前先读文件;改动要小,一次只解决一个问题,便于复核与回退。edit 的 old_string 必须唯一匹配——匹配到多处时,要么提供更长的上下文,要么显式使用 replace_all。</p>
+
+      <h2 id="search"><span class="hash">#</span>搜索与定位</h2>
+      <p>不知道文件在哪、或想找某段逻辑时,先搜索再阅读:用 glob 缩小文件范围,用 grep 定位具体行,再用 read 读取上下文。grep 使用 ripgrep 语法,支持正则与排除模式,效率远高于人肉翻文件。</p>
+      <pre class="codeblock"><code># glob:找出所有 Markdown 文档
+**/*.md
+
+# grep:定位 TODO 与 FIXME 标记
+TODO|FIXME</code></pre>
+
+      <h2 id="example"><span class="hash">#</span>一个完整例子</h2>
+      <p>以「改一行配置」为例,标准流程是读 → 改 → 确认:</p>
+      <ol class="steps">
+        <li><b>读。</b>read 配置文件,确认当前值与上下文。</li>
+        <li><b>改。</b>edit 精确替换目标行,old_string 取足够长的唯一片段。</li>
+        <li><b>确认。</b>再 read 一遍改动区域,核对结果符合预期。</li>
+      </ol>
+
+      <h2 id="notes"><span class="hash">#</span>注意</h2>
+      <p>文件按 UTF-8 处理;超大文件用 offset / limit 分段读取,避免一次性加载过多内容。write 是整体覆盖,写之前务必先读、确认你理解文件全貌。</p>
+      <div class="note warn">
+        <div class="note-title">别覆盖你没读过的文件</div>
+        write 不会问你要不要合并——它会直接替换全部内容。改动之前先 read;拿不准就小步 edit,而不是整文件重写。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./ch-09.html">← 第 9 章 用 bash 执行命令与脚本</a>
+        <a class="cn-next" href="./bluebook.html#ch-11">第 11 章 调研与搜索:web_search 与资料整理 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="三份竞品资料,为每份启动一个后台子代理并行调研,主会话汇总交叉验证,输出带来源引用的对比报告。" />
+  <title>用子代理并行调研三份竞品报告｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#process">操作过程</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#acceptance">验收标准</a></li>
+          <li><a href="#assets">可复用资产</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 用子代理并行调研三份竞品报告</p>
+      <p class="section-kicker">CASE · SUBAGENTS</p>
+      <h1>用子代理并行调研三份竞品报告</h1>
+      <div class="case-tags"><span>SUBAGENTS</span><span>PARALLEL</span></div>
+      <p class="doc-lead">三份竞品资料,一路一路查太慢。为每份启动一个后台子代理并行调研,再汇总交叉验证。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>要写一份竞品对比,三份产品资料需要独立调研:功能清单、定价、社区活跃度。逐份串行太慢,希望并行推进,并且某一路失败也不影响整体交付。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>子代理:</strong>subagent 委派自包含任务,默认后台运行。</li>
+        <li><strong>会话管理:</strong>用 send_message 补充提问、list_agents 查看状态。</li>
+        <li><strong>并行执行:</strong>三路调研同时进行,主会话可以继续做别的事。</li>
+        <li><strong>结构化输出:</strong>子代理可带 schema 校验,保证结果格式一致。</li>
+      </ul>
+
+      <h2 id="process"><span class="hash">#</span>操作过程</h2>
+      <ol class="steps">
+        <li><b>拆解任务。</b>把调研拆成三份自包含 prompt:调研范围、输出格式、引用要求。</li>
+        <li><b>并行委派。</b>为每份资料启动一个后台 subagent,主会话继续做其他工作。</li>
+        <li><b>汇总交叉验证。</b>收集三路结果,对价格、功能等事实交叉比对,标出冲突点。</li>
+        <li><b>成稿交付。</b>输出对比表与结论,每条结论附来源链接。</li>
+      </ol>
+
+      <pre class="codeblock"><code>subagent("调研竞品A", "背景…输出功能 / 定价 / 社区对比表,附来源")
+subagent("调研竞品B", "背景…输出功能 / 定价 / 社区对比表,附来源")
+subagent("调研竞品C", "背景…输出功能 / 定价 / 社区对比表,附来源")</code></pre>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>三路调研约 40 分钟并行完成,串行预估要 2 小时;一路超时未归,其余照常汇总,冲突点标注待核。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>验收标准</h2>
+      <ul>
+        <li>报告每项结论都有来源引用。</li>
+        <li>三路数据冲突点已标注,待人工核实。</li>
+        <li>单路失败不阻塞整体交付。</li>
+      </ul>
+
+      <h2 id="assets"><span class="hash">#</span>可复用资产</h2>
+      <p><strong>「子代理调研提示词模板」:</strong>包含背景、调研范围、输出结构(表格)、引用要求与失败处理说明,可复用于任何多路调研任务。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        子代理继承当前权限策略,不要让它越界写文件或访问敏感数据;涉及对外发布的内容,主会话仍需人工复核。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./case-01.html">← 其他案例 审计一个仓库:依赖、安全与遗留问题</a>
+        <a class="cn-next" href="./case-04.html">其他案例 长期目标:持续改进一个开源小项目 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

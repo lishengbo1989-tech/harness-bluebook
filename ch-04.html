@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,模型,API 密钥,OpenAI 兼容,providers,配置,蓝皮书" />
+  <meta name="description" content="DeepSeek Harness 配置模型提供方:在 Web UI「设置 → 模型」填入 DeepSeek API 密钥,保存即生效无需重启,支持其他提供方与 OpenAI 兼容自定义端点。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 4 章 配置模型提供方｜DSH 实战蓝皮书" />
+  <title>配置模型提供方｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#settings-models">设置 → 模型</a></li>
+          <li><a href="#providers-endpoints">其他提供方与自定义端点</a></li>
+          <li><a href="#key-safety">密钥安全</a></li>
+          <li><a href="#verify">验证配置</a></li>
+          <li><a href="#next-step">下一步</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-01">第一篇</a> → 第 4 章</p>
+      <p class="section-kicker">PART 01 · CH. 04</p>
+      <h1>配置模型提供方</h1>
+      <p class="doc-lead">本章解决「让 dsh 开口说话」的问题:在 Web UI 里填入模型提供方信息,保存即生效,并知道如何安全地保管密钥。</p>
+
+      <h2 id="settings-models"><span class="hash">#</span>设置 → 模型</h2>
+      <p>打开 Web UI,进入「设置 → 模型」,填入你的 <strong>DeepSeek API 密钥</strong>。保存后模型路由<strong>立即生效</strong>——<strong>无需重启</strong> Web UI 或 dsh 进程,直接回到会话窗口就能开始对话。这也是 Web UI 上手最快的路径:只填一个密钥,其他保持默认即可。</p>
+
+      <h2 id="providers-endpoints"><span class="hash">#</span>其他提供方与自定义端点</h2>
+      <p>除了 DeepSeek 官方 API,dsh 还<strong>支持其他提供方</strong>,以及 <strong>OpenAI 兼容的自定义端点</strong>——比如私有化部署的兼容服务。各家提供方的配置项与端点格式不同,接入步骤参见官方文档 <code>docs/user/guide/providers</code>;拿不准时,以<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">官方仓库</a>为准。</p>
+
+      <h2 id="key-safety"><span class="hash">#</span>密钥安全</h2>
+      <ul>
+        <li><strong>不要提交到仓库。</strong>API 密钥不要写进代码、配置或任何会进入版本控制的文件。</li>
+        <li><strong>不要粘贴到公开渠道。</strong>不要发到群聊、公开 Issue、截图或演示里。</li>
+        <li><strong>泄露即轮换。</strong>怀疑密钥泄露时,尽快到提供方控制台吊销并换新。</li>
+      </ul>
+      <div class="note">
+        <div class="note-title">保存即生效</div>
+        密钥保存后模型路由立即可用,无需重启。若后续行为异常,先检查密钥是否有效、提供方是否可用,再考虑其他排查方向。
+      </div>
+
+      <h2 id="verify"><span class="hash">#</span>验证配置</h2>
+      <p>配置是否生效,发一个简单任务就能验证:</p>
+      <ol class="steps">
+        <li><b>选中工作区。</b>在 Web UI 添加并选中一个工作区——选中工作区前,会话输入框是不可用的(工作区细节见<a href="./ch-05.html">第 5 章</a>)。</li>
+        <li><b>发送一个简单任务。</b>例如让它总结当前工作区:</li>
+      </ol>
+      <pre class="codeblock"><code>Summarize this repository and identify its main packages.</code></pre>
+      <p>模型能正常回复,说明密钥与路由配置成功;若提示鉴权失败,检查密钥是否完整、是否选对了提供方。</p>
+
+      <h2 id="next-step"><span class="hash">#</span>下一步</h2>
+      <p>模型已就绪,下一步进入<a href="./ch-05.html">第 5 章 第一个任务</a>,让 agent 跑通第一次真实的文件读取与总结,并理解它的完整工作回路。</p>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./bluebook.html#ch-03">← 第 3 章 Web UI 漫游</a>
+        <a class="cn-next" href="./ch-05.html">第 5 章 第一个任务 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

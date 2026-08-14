@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,bash,命令执行,后台任务,run_in_background,蓝皮书" />
+  <meta name="description" content="第 9 章:用 bash 执行命令与脚本——环境探测、输出与退出码解读、后台任务与脚本化常见操作。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 9 章 用 bash 执行命令与脚本｜DSH 实战蓝皮书" />
+  <title>第 9 章 用 bash 执行命令与脚本｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">◢◤</span>
+        DSH 蓝皮书<small>· DEEPSEEK HARNESS</small>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#probe">先探测环境</a></li>
+          <li><a href="#output-exit">读输出与退出码</a></li>
+          <li><a href="#background">后台任务</a></li>
+          <li><a href="#scripting">脚本化常见操作</a></li>
+          <li><a href="#safety">安全注意</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-02">第二篇</a> → 第 9 章</p>
+      <p class="section-kicker">PART 02 · CH. 09</p>
+      <h1>用 bash 执行命令与脚本</h1>
+      <p class="doc-lead">让 agent 在你的工作区里真正"动手":探测环境、执行命令、解读输出,再把重复操作脚本化。</p>
+
+      <h2 id="probe"><span class="hash">#</span>先探测环境</h2>
+      <p>让 agent 动手之前,先确认它站在哪里、手里有什么工具。习惯上先用 <code>pwd</code> 确认当前目录,用 <code>ls</code> 看看工作区里有什么文件,再按需检查工具版本,比如 <code>node -v</code>。命令默认在会话工作区的沙箱内运行,输出会实时出现在会话里。</p>
+      <pre class="codeblock"><code>pwd
+ls
+node -v</code></pre>
+
+      <h2 id="output-exit"><span class="hash">#</span>读输出与退出码</h2>
+      <p>每次命令执行的结果都带有 <code>[exit code: N]</code> 标记:0 表示成功,非零表示失败。看到失败不要盲目重试——先读输出、调查原因,再决定下一步。输出很长时界面会截断显示,完整内容会保存到文件,必要时再取一次。</p>
+      <ul>
+        <li><b>先看退出码</b>,再决定是继续还是排查。</li>
+        <li><b>失败要调查</b>:读错误信息、确认路径与参数,再重试。</li>
+        <li><b>长输出不截断判断</b>:以保存的完整输出为准。</li>
+      </ul>
+
+      <h2 id="background"><span class="hash">#</span>后台任务</h2>
+      <p>耗时的命令不必堵住主线工作。用 <code>run_in_background</code> 启动长任务,会立刻返回一个 job id;之后用 <code>job_output</code> 收集输出,用 <code>job_kill</code> 停止不再需要的任务。</p>
+      <ol class="steps">
+        <li><b>后台启动。</b>长命令以 run_in_background 方式运行,拿到 job id。</li>
+        <li><b>继续主线。</b>不必轮询等待,任务结束时会收到通知。</li>
+        <li><b>收集结果。</b>用 job_output 读取输出,再决定后续动作。</li>
+        <li><b>及时停止。</b>不再需要的任务用 job_kill 收掉,别让它空转。</li>
+      </ol>
+
+      <h2 id="scripting"><span class="hash">#</span>脚本化常见操作</h2>
+      <p>重复性的机械操作,与其一条条执行,不如写成脚本一次跑完。例如把一批 <code>*.tmp</code> 文件按模式重命名为 <code>*.bak</code>:</p>
+      <pre class="codeblock"><code>for f in *.tmp; do
+  mv "$f" "${f%.tmp}.bak"
+done</code></pre>
+      <p>脚本化之前,先在小范围干跑一遍,确认模式匹配正确,再应用到全部文件。</p>
+
+      <h2 id="safety"><span class="hash">#</span>安全注意</h2>
+      <p>命令在沙箱内运行,受当前权限策略约束:默认策略是 workspace-write,只可读写会话工作区;删除、覆盖、越界访问等危险操作会触发审批,升级到 danger-full-access 需要说明理由。审批策略可能 fail-closed——没有应答时,请求会被拒绝。</p>
+      <div class="note warn">
+        <div class="note-title">先想清楚再执行</div>
+        删除与覆盖不可逆。涉及 <code>rm</code>、<code>mv</code>、外部网络请求的命令,先在脑内过一遍影响范围;把握不准时,把任务拆小,交给审批流程把关。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./bluebook.html#ch-08">← 第 8 章 CLI 与 Python SDK</a>
+        <a class="cn-next" href="./ch-10.html">第 10 章 文件读写与代码编辑 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

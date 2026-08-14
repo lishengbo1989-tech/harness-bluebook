@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="keywords" content="DeepSeek Harness,DSH,第一个任务,工作区,agent,工具调用,审批,蓝皮书" />
+  <meta name="description" content="DeepSeek Harness 第一个任务:先选择工作区,发送官方示例 prompt,理解 agent 读文件、思考、调工具、检查的完整回路与审批机制。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="DSH 实战蓝皮书" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="第 5 章 第一个任务｜DSH 实战蓝皮书" />
+  <title>第一个任务:让 agent 跑通一次真实操作｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html" class="active">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html" class="active">开始阅读</a></li>
+          <li><a href="./cases.html">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#workspace">先选择工作区</a></li>
+          <li><a href="#first-task">发送第一个任务</a></li>
+          <li><a href="#agent-loop">理解 agent 的回路</a></li>
+          <li><a href="#acceptance">任务验收</a></li>
+          <li><a href="#next-step">下一步</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./bluebook.html">蓝皮书</a> → <a href="./bluebook.html#part-01">第一篇</a> → 第 5 章</p>
+      <p class="section-kicker">PART 01 · CH. 05</p>
+      <h1>第一个任务:让 agent 跑通一次真实操作</h1>
+      <p class="doc-lead">本章解决「第一次真正干活」的问题:选好工作区、发出第一个任务,并理解 agent 读文件、思考、调工具、检查的完整回路。</p>
+
+      <h2 id="workspace"><span class="hash">#</span>先选择工作区</h2>
+      <p>dsh 进程把<strong>启动时的调用目录</strong>作为默认的文件系统位置;但新 Web UI 在添加工作区前<strong>不选中任何工作区</strong>——而<strong>选中工作区之前,会话输入框不可用</strong>。所以开工第一步永远是:在 Web UI 里添加并选中一个工作区。agent 之后就在这个边界内读写文件、运行命令。</p>
+
+      <h2 id="first-task"><span class="hash">#</span>发送第一个任务</h2>
+      <p>官方文档给出的示例任务,非常适合当第一个「验收对象」:</p>
+      <pre class="codeblock"><code>Summarize this repository and identify its main packages.</code></pre>
+      <p>把它粘贴进会话输入框发送。这个任务要求 agent 真正去读仓库,而不是凭印象回答——从它的回复里,你能判断工具链路是否已经打通。</p>
+
+      <h2 id="agent-loop"><span class="hash">#</span>理解 agent 的回路</h2>
+      <p>agent 不是一次性回答,而是在一个循环里工作:<strong>读文件 → 思考 → 调用工具 → 检查结果</strong>,必要时重复。它具备的能力包括:</p>
+      <ul>
+        <li>读取与编辑工作区文件;</li>
+        <li>运行命令并解读输出;</li>
+        <li>委派子任务、维护自己的执行计划;</li>
+        <li>当操作在当前权限策略下需要审批时,停下来先询问你。</li>
+      </ul>
+      <p>理解这个回路,你就明白为什么「等它自己完成」比「催促它」更有效:每一步都需要读文件、调工具和检查,这是一个多步骤过程。</p>
+
+      <h2 id="acceptance"><span class="hash">#</span>任务验收</h2>
+      <ol class="steps">
+        <li><b>核对事实。</b>回复里列出的包名,是否与仓库中真实的依赖清单一致?</li>
+        <li><b>要求出处。</b>让它指出依据的文件路径,而不是只给结论。</li>
+        <li><b>预先定标准。</b>比如「列出至少三个主要包并说明用途」,再对照判断是否达成。</li>
+      </ol>
+      <div class="note">
+        <div class="note-title">第一次别贪多</div>
+        第一个任务选小一点、可验收的,先把回路跑通;跑通一次,你就得到了一份可复用的任务模板。
+      </div>
+
+      <h2 id="next-step"><span class="hash">#</span>下一步</h2>
+      <p>任务能跑通之后,下一个问题就是边界:<a href="./ch-06.html">第 6 章 沙箱与权限</a>解释 agent 默认能在哪里读写、什么操作会触发审批、升级权限意味着什么。</p>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./ch-04.html">← 第 4 章 配置模型提供方</a>
+        <a class="cn-next" href="./ch-06.html">第 6 章 沙箱与权限 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>
