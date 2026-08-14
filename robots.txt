@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lishengbo1989-tech.github.io/harness-bluebook/sitemap.xml
