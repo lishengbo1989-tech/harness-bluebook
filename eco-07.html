@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="社区生态案例:dsh-email 与 dsh-calendar 把 IMAP/SMTP 邮件与 CalDAV 日程收进 DSH 会话,读信、发信、管日程用对话完成。" />
+  <title>邮件与日程:dsh-email · dsh-calendar｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-07.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "邮件与日程:dsh-email · dsh-calendar｜DSH 实战蓝皮书",
+  "description": "社区生态案例:dsh-email 与 dsh-calendar 把 IMAP/SMTP 邮件与 CalDAV 日程收进 DSH 会话。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-07.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:邮件与日程</p>
+      <p class="section-kicker">ECOSYSTEM CASE · EMAIL</p>
+      <h1>邮件与日程:dsh-email · dsh-calendar</h1>
+      <div class="case-tags"><span>EMAIL</span><span>CALDAV</span><span>AUTOMATION</span></div>
+      <p class="doc-lead">把邮件与日程收进 DSH 会话:读信、搜信、发信、管文件夹与附件,日历事件交给 AI 打理。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>日常办公里,邮件与日程是信息进出的主通道,却和 AI 会话完全割裂。dsh-email 与 dsh-calendar 的目标是让自然语言驱动邮件与日历:列出、读取、搜索、发送邮件,以及查询和创建日程,减少在多个客户端之间来回切换。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>插件机制:</strong>两个独立插件分别把邮件工具与日程工具注册进会话。</li>
+        <li><strong>协议支持:</strong>邮件走 IMAP/SMTP,日程走 CalDAV,覆盖主流服务商。</li>
+        <li><strong>审批闸门:</strong>发送邮件需审批确认,重要动作有人把关,降低误发风险。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>dsh-email 按 IMAP/SMTP 封装出邮件操作:列出、读取、搜索、发送、文件夹与附件管理,内置 QQ、163、126、Sina、Aliyun、Gmail、Outlook、iCloud 等服务商预设并支持多账号。dsh-calendar 对接 Google、iCloud、Nextcloud 或自定义 CalDAV 端点,自动展开 RRULE 重复规则,让「每周例会」这类事件按规则呈现。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>收信检索、发信、日程查询与创建都能在会话里用对话完成;多账号与主流服务商开箱即用,重复事件按规则展开;发送动作走审批闸门,结果可留痕、可回溯。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>社区仓库:<a href="https://github.com/STARDUSTLC666/dsh-email" target="_blank" rel="noopener">github.com/STARDUSTLC666/dsh-email</a> 与 <a href="https://github.com/STARDUSTLC666/dsh-calendar" target="_blank" rel="noopener">github.com/STARDUSTLC666/dsh-calendar</a></p>
+      <p>安装插件:</p>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-email
+dsh plugin --profile web add dsh-calendar</code></pre>
+      <p>首次使用需按仓库 README 配置账号(通常用应用专用密码)。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-06.html">← 其他生态案例 SSH 远程运维</a>
+        <a class="cn-next" href="./eco-08.html">其他生态案例 Excel 对话式办公 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

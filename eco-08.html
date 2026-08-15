@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="社区生态案例:用 dsh-excel-chat 在 DSH 里对话式创建、编辑、修复、校验电子表格,每次编辑后自动做公式健康检查。" />
+  <title>Excel 对话式办公:dsh-excel-chat｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-08.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Excel 对话式办公:dsh-excel-chat｜DSH 实战蓝皮书",
+  "description": "社区生态案例:用 dsh-excel-chat 在 DSH 里对话式创建、编辑、修复、校验电子表格。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-08.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:Excel 对话式办公</p>
+      <p class="section-kicker">ECOSYSTEM CASE · EXCEL</p>
+      <h1>Excel 对话式办公:dsh-excel-chat</h1>
+      <div class="case-tags"><span>EXCEL</span><span>OFFICE</span><span>CONVERSATION</span></div>
+      <p class="doc-lead">用对话创建、编辑、修复、校验电子表格,每次改完自动做一次公式健康检查。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>报表整理、数据清洗这类活儿,反复打开 Excel 手动改公式既慢又容易出错。dsh-excel-chat 的目标是让 AI 在 DSH 会话里直接创建、编辑、修复、校验电子表格,把「改表」变成一段对话。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>插件机制:</strong>把电子表格操作封装成会话内工具,AI 按指令读写工作簿。</li>
+        <li><strong>对话式交互:</strong>创建、编辑、修复、校验全部通过自然语言驱动,无需手写脚本。</li>
+        <li><strong>自动检查:</strong>每次编辑后自动运行公式健康检查,及时暴露错误引用等问题。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>插件把电子表格的常用操作(建表、改单元格、写公式、修错误、做校验)封装成一组工具;AI 按你的对话指令逐步改表,并在每次编辑后自动跑一遍公式健康检查,把坏引用、错误类型等问题带回会话继续修正,形成「改一下、查一下」的闭环。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>从「建表、填数、写公式、查错」到「用一句话说需求」;每次编辑后公式健康检查自动执行,问题在编辑当下就被发现并修正,而不是等打开 Excel 才暴露。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>社区仓库:<a href="https://github.com/hccccc01333/dsh-excel-chat" target="_blank" rel="noopener">github.com/hccccc01333/dsh-excel-chat</a></p>
+      <p>安装插件:</p>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-excel-chat</code></pre>
+      <p>使用前请阅读仓库 README,了解支持的操作范围与文件格式。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-07.html">← 其他生态案例 邮件与日程</a>
+        <a class="cn-next" href="./eco-09.html">其他生态案例 浏览器与电脑操作 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

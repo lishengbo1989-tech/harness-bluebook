@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="用 dsh-agent-teams 把一个 DSH 会话变成「队长」:可持久化子代理、依赖感知任务与私信协调,在 DSH 内编排一支 AI 团队。" />
+  <title>一支 AI 团队:dsh-agent-teams｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-01.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "一支 AI 团队:dsh-agent-teams｜DSH 实战蓝皮书",
+  "description": "用 dsh-agent-teams 把一个 DSH 会话变成「队长」:可持久化子代理、依赖感知任务与私信协调,在 DSH 内编排一支 AI 团队。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-01.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例: 一支 AI 团队</p>
+      <p class="section-kicker">ECOSYSTEM CASE · AGENTS</p>
+      <h1>一支 AI 团队:dsh-agent-teams</h1>
+      <div class="case-tags"><span>AGENTS</span><span>TEAMS</span><span>WORKFLOW</span></div>
+      <p class="doc-lead">把一个 DSH 会话变成「队长」,组装可持久化的子代理,用私信协调一支各司其职的 AI 团队。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>单会话里的 agent 各干各的,一旦任务互相依赖,就缺一个统一调度的大脑。dsh-agent-teams 把一个 DSH 会话变成「队长」:组装可持久化的子代理、把目标拆成依赖感知的任务、通过私信协调工作。给需要多代理协作、又不愿引入独立工作流引擎的团队。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>子代理:</strong>团队成员是可续跑的 DSH 子代理,会话结束后仍可继续执行。</li>
+        <li><strong>任务模型:</strong>任务带显式状态,依赖未完成前不可认领,推进顺序有保证。</li>
+        <li><strong>私信通信:</strong>成员之间直接私信(邮箱式消息),由队长统一协调。</li>
+        <li><strong>插件机制:</strong>团队协议、九个协调工具、持久状态与实时 Web UI,无需独立工作流引擎。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>一次 DSH 会话扮演「队长」:负责组装成员、拆解目标、认领与调度任务;依赖感知让任务按序推进;状态全部持久化,配合实时 Web UI 观察整支队伍的工作进度。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>在 DSH 内部即可获得一支可持久、可观察、可续跑的 AI 团队:任务推进有显式状态与依赖约束,成员通过私信沟通,整条协作链路不依赖外部工作流引擎。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>仓库:<a href="https://github.com/NanmiCoder/dsh-agent-teams" target="_blank" rel="noopener">github.com/NanmiCoder/dsh-agent-teams</a>;npm 包:<code>@nanmicoder/dsh-agent-teams</code>。安装命令:</p>
+      <pre class="codeblock"><code>dsh plugin --profile web add @nanmicoder/dsh-agent-teams</code></pre>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-02.html">← 其他生态案例 人机协同规划:dsh-plans</a>
+        <a class="cn-next" href="./eco-03.html">其他生态案例 双模型路由:dsh-plan-execute →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

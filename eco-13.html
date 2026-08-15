@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="DSH 生态案例:用 dsh-us-stocks 与 dsh-finance 在会话里查美股行情、财报与新闻,并跑通带来源纪律的金融研究工作流。" />
+  <title>生态案例:金融与股票｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-13.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "生态案例:金融与股票｜DSH 实战蓝皮书",
+  "description": "DSH 生态案例:用 dsh-us-stocks 与 dsh-finance 在会话里查美股行情、财报与新闻,并跑通带来源纪律的金融研究工作流。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-13.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#sources">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:金融与股票</p>
+      <p class="section-kicker">ECOSYSTEM CASE · FINANCE</p>
+      <h1>生态案例:金融与股票</h1>
+      <div class="case-tags"><span>FINANCE</span><span>STOCKS</span><span>RESEARCH</span></div>
+      <p class="doc-lead">查行情、读财报、跑组合风险分析,让数据与研究都在一个会话里,结论带来源。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>关注美股的个人投资者与金融研究者,需要快速拿到行情、历史数据、财报、分析师共识与新闻,同时做组合风险分析。难点在于信息分散且来源难以追溯,目标是让取数与研究流程化、结论可复核。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>行情数据:</strong>dsh-us-stocks 基于 yahoo-finance2,提供美股行情、历史、财报、分析师共识与新闻。</li>
+        <li><strong>研究工作流:</strong>dsh-finance 提供金融研究工作流与组合风险工具。</li>
+        <li><strong>来源纪律:</strong>dsh-finance 重视市场事实来源纪律,输出可追溯。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>dsh-us-stocks 把 yahoo-finance2 的数据能力封装成 DSH 工具,在对话里问行情、财报与共识即可直接取数;dsh-finance 把研究拆成固定工作流步骤,组合风险分析复用同一套流程,并守住「市场事实要有来源」的纪律,避免结论脱离依据。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>数据查询与研究在一个会话里完成,行情、财报与新闻随手可得;组合风险分析有固定流程可重复执行,研究结论带来源、可复核,减少临时拼凑与无法追溯的判断。</p>
+
+      <h2 id="sources"><span class="hash">#</span>出处与上手</h2>
+      <ul>
+        <li><a href="https://github.com/Realyujie/dsh-us-stocks" target="_blank" rel="noopener">github.com/Realyujie/dsh-us-stocks</a> — 美股行情与数据</li>
+        <li><a href="https://github.com/zhang787jun/dsh-finance" target="_blank" rel="noopener">github.com/zhang787jun/dsh-finance</a> — 研究工作流与组合风险</li>
+      </ul>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-us-stocks
+dsh plugin --profile web add dsh-finance</code></pre>
+      <p>具体加载方式与依赖以各仓库 README 为准。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-12.html">← 其他生态案例 内容创作与视频</a>
+        <a class="cn-next" href="./eco-14.html">其他生态案例 游戏与 3D →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

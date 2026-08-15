@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="dsh-trajectory-governance 把扁平会话日志重建为轨迹树,检测循环死锁、无效重试与目标漂移,成本归因、一键打断与断点 fork。" />
+  <title>会话轨迹治理:dsh-trajectory-governance｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-05.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "会话轨迹治理:dsh-trajectory-governance｜DSH 实战蓝皮书",
+  "description": "dsh-trajectory-governance 把扁平会话日志重建为轨迹树,检测循环死锁、无效重试与目标漂移,成本归因、一键打断与断点 fork。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-05.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例: 会话轨迹治理</p>
+      <p class="section-kicker">ECOSYSTEM CASE · TRAJECTORY</p>
+      <h1>会话轨迹治理:dsh-trajectory-governance</h1>
+      <div class="case-tags"><span>TRAJECTORY</span><span>DEBUG</span><span>GOVERNANCE</span></div>
+      <p class="doc-lead">把扁平会话日志重建为多分支轨迹树,让长会话可回溯、异常可发现。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>长会话的日志是扁平的,一旦循环死锁或目标漂移,很难定位问题出在哪。dsh-trajectory-governance 把扁平会话日志重建为多分支轨迹树,检测循环死锁、无效重试与目标漂移,适合调试长会话和治理 agent 成本。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>轨迹重建:</strong>扁平会话日志 → 多分支轨迹树。</li>
+        <li><strong>异常检测:</strong>循环死锁、无效重试、目标漂移自动标记。</li>
+        <li><strong>治理工具:</strong>成本归因告警、一键打断、断点 fork(走官方 API)。</li>
+        <li><strong>可视化:</strong>独立 GUI 标签页查看轨迹。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>通过官方 API 读取会话数据,重建为树形轨迹;对死锁、无效重试与漂移打标记并按成本归因;失控会话可一键打断,也可在断点 fork 出新的分支继续调试。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>长会话可回溯、异常可见、成本可归因;失控会话能一键打断,断点 fork 让调试不必从头再来。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>仓库:<a href="https://github.com/dfycaly98931680/dsh-trajectory-governance" target="_blank" rel="noopener">github.com/dfycaly98931680/dsh-trajectory-governance</a>。安装与用法详见仓库 README。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-01.html">← 其他生态案例 一支 AI 团队:dsh-agent-teams</a>
+        <a class="cn-next" href="./eco-04.html">其他生态案例 Git 工作树隔离交付:dsh-git-worktree →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

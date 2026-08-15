@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="社区生态案例:dsh-browser-control、dsh-computer-use、dsh-pilot 让 AI 驱动真实浏览器与 macOS 电脑操作,网页与桌面自动化。" />
+  <title>浏览器与电脑操作:dsh-browser-control · dsh-computer-use｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-09.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "浏览器与电脑操作:dsh-browser-control · dsh-computer-use｜DSH 实战蓝皮书",
+  "description": "社区生态案例:让 AI 驱动真实浏览器与 macOS 电脑操作,网页与桌面自动化。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-09.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:浏览器与电脑操作</p>
+      <p class="section-kicker">ECOSYSTEM CASE · BROWSER</p>
+      <h1>浏览器与电脑操作:dsh-browser-control · dsh-computer-use</h1>
+      <div class="case-tags"><span>BROWSER</span><span>COMPUTER-USE</span><span>AUTOMATION</span></div>
+      <p class="doc-lead">让 AI 替你「看得见」地操作浏览器和电脑:开网页、点按钮、填表单,或直接驱动 macOS 界面。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>网页自动化与本地桌面任务,通常要专门写脚本。这一组插件的目标是让 AI 直接从会话驱动真实浏览器与电脑:打开网页、点击、填表,或操作 macOS 界面,把重复操作交给对话完成。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>Playwright MCP:</strong>dsh-browser-control 驱动真实可见的 Chrome,提供约 80 个 browser_* 工具与实时截图面板。</li>
+        <li><strong>文本优先控制:</strong>dsh-computer-use 用后台 Chromium 加无障碍优先的 macOS 控制,不抢鼠标指针。</li>
+        <li><strong>零依赖 CDP:</strong>dsh-pilot 直接走 CDP 协议控制浏览器,提供 8 个 pilot_* 工具。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>三个插件是三种取舍:dsh-browser-control 走 Playwright MCP,浏览器真实可见、工具面最全,适合需要盯过程的场景;dsh-computer-use 面向「不打断你干活」的自动化,后台跑 Chromium、macOS 控制走无障碍接口,操作不抢鼠标指针;dsh-pilot 零依赖、体积小,直接用 CDP 协议控制浏览器。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>网页与桌面操作都能从会话发起,实时截图面板让过程可见、可控;按场景选插件:重交互用 browser-control,后台批处理用 computer-use,轻量控制用 pilot。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>社区仓库:<a href="https://github.com/kyo615/dsh-browser-control" target="_blank" rel="noopener">github.com/kyo615/dsh-browser-control</a> · <a href="https://github.com/ZRui-C/dsh-computer-use" target="_blank" rel="noopener">github.com/ZRui-C/dsh-computer-use</a> · <a href="https://github.com/guo6x/dsh-pilot" target="_blank" rel="noopener">github.com/guo6x/dsh-pilot</a></p>
+      <p>安装插件:</p>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-browser-control
+dsh plugin --profile web add dsh-computer-use</code></pre>
+      <p>dsh-pilot 同样可用 <code>dsh plugin --profile web add dsh-pilot</code> 安装;各仓库 README 有详细的工具清单与用法。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-08.html">← 其他生态案例 Excel 对话式办公</a>
+        <a class="cn-next" href="./eco-10.html">其他生态案例 数据库与数据工具 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

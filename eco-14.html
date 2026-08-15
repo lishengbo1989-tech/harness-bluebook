@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="DSH 生态案例:用 godot-bridge 与 blender 插件在会话里驱动 Godot 引擎运行时与 Blender 3D 生产管线。" />
+  <title>生态案例:游戏与 3D｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-14.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "生态案例:游戏与 3D｜DSH 实战蓝皮书",
+  "description": "DSH 生态案例:用 godot-bridge 与 blender 插件在会话里驱动 Godot 引擎运行时与 Blender 3D 生产管线。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-14.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#sources">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:游戏与 3D</p>
+      <p class="section-kicker">ECOSYSTEM CASE · GAMING</p>
+      <h1>生态案例:游戏与 3D</h1>
+      <div class="case-tags"><span>GAMING</span><span>3D</span><span>BRIDGE</span></div>
+      <p class="doc-lead">在会话里检查 Godot 场景、求值 GDScript,也驱动 Blender 的建模、渲染与导出。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>游戏开发者与 3D 美术常常要在编辑器里反复手动操作。目标是让 DSH 直接连接 Godot 引擎运行时与 Blender 生产管线,把检查场景、调试脚本、建模重建这类工作变成可对话、可复用的操作。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>引擎运行时桥:</strong>godot-bridge 提供 8 个工具连接 DSH 与 Godot,可替代 godot-mcp。</li>
+        <li><strong>场景操作:</strong>检查场景与 UI、求值 GDScript、模拟输入、截图。</li>
+        <li><strong>3D 生产:</strong>blender 提供 30 个建模/重建技能与 13 个运行时工具。</li>
+        <li><strong>生产流程:</strong>覆盖参考拟合、渲染、校验、动画与导出。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>godot-bridge 在 DSH 与 Godot 运行时之间建立通道,8 个工具覆盖场景/UI 检查、GDScript 求值、输入模拟与截图,调试不必切出编辑器;blender 把建模与重建拆成 30 个技能,13 个运行时工具处理参考拟合、渲染、校验、动画与导出,沉淀为可复用的 3D 生产管线。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>游戏调试与 3D 资产操作可以在对话里直接驱动,常见操作被封装成技能,重复的建模与重建流程可复用;渲染与导出走固定工具,减少了手工点击与来回切换。</p>
+
+      <h2 id="sources"><span class="hash">#</span>出处与上手</h2>
+      <ul>
+        <li><a href="https://github.com/Smalldy/godot-bridge" target="_blank" rel="noopener">github.com/Smalldy/godot-bridge</a> — DSH↔Godot 运行时桥</li>
+        <li><a href="https://github.com/CheshireJCat/blender" target="_blank" rel="noopener">github.com/CheshireJCat/blender</a> — Blender 3D 生产插件</li>
+      </ul>
+      <pre class="codeblock"><code>dsh plugin --profile web add godot-bridge
+dsh plugin --profile web add blender</code></pre>
+      <p>具体加载方式与依赖以各仓库 README 为准。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-13.html">← 其他生态案例 金融与股票</a>
+        <a class="cn-next" href="./eco-15.html">其他生态案例 教育 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

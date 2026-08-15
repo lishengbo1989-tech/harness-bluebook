@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="社区生态案例:dsh-data-agent、dsh-toolkit、dsh-kb-sieve 让 AI 连数据库写 SQL、跑确定性数据工具、构建可审计知识库。" />
+  <title>数据库与数据工具:dsh-data-agent · dsh-toolkit｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-10.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "数据库与数据工具:dsh-data-agent · dsh-toolkit｜DSH 实战蓝皮书",
+  "description": "社区生态案例:让 AI 连数据库写 SQL、跑确定性数据工具、构建可审计知识库。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-10.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:数据库与数据工具</p>
+      <p class="section-kicker">ECOSYSTEM CASE · DATABASE</p>
+      <h1>数据库与数据工具:dsh-data-agent · dsh-toolkit</h1>
+      <div class="case-tags"><span>DATABASE</span><span>TOOLKIT</span><span>DATA</span></div>
+      <p class="doc-lead">让 AI 连数据库写 SQL、跑确定性数据工具、构建可检索可审计的知识库。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>数据开发与分析里,「连库、写 SQL、跑小工具、翻资料」都是高频杂活。这一组插件的目标是把它们收进会话:dsh-data-agent 让 AI 连接数据库并编写 SQL,dsh-toolkit 提供确定性数据工具,dsh-kb-sieve 把散落文档变成可检索的知识库。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>数据库连接:</strong>让 AI 连上数据库,按需求编写并执行 SQL。</li>
+        <li><strong>确定性工具:</strong>dsh-toolkit 提供时间、编码、json、计算器、csv、正则、markdown、diff、stat、schema 十个零依赖工具。</li>
+        <li><strong>可审计知识库:</strong>dsh-kb-sieve 用 SQLite FTS5 从 md/txt/docx/pdf 构建知识库包,检索可回溯。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>三个插件分工明确:dsh-data-agent 负责「连库写 SQL」,把数据库连接与查询封装成会话内工具;dsh-toolkit 把高频数据杂活做成无依赖的确定性工具,输出稳定、结果可预期;dsh-kb-sieve 用 SQLite 全文检索(FTS5)索引本地文档,构建可审计的知识库包。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>从「连库、写 SQL、跑工具、翻文档」到「一句话让 AI 代劳」;确定性工具输出可预期,知识库查询可审计、可回溯到源文档,适合对结果可靠性有要求的场景。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>社区仓库:<a href="https://github.com/omdsh-dev/dsh-data-agent" target="_blank" rel="noopener">github.com/omdsh-dev/dsh-data-agent</a> · <a href="https://github.com/omdsh-dev/dsh-toolkit" target="_blank" rel="noopener">github.com/omdsh-dev/dsh-toolkit</a> · <a href="https://github.com/omdsh-dev/dsh-kb-sieve" target="_blank" rel="noopener">github.com/omdsh-dev/dsh-kb-sieve</a></p>
+      <p>安装插件:</p>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-data-agent
+dsh plugin --profile web add dsh-toolkit
+dsh plugin --profile web add dsh-kb-sieve</code></pre>
+      <p>连接数据库需按仓库 README 配置连接信息;生产库请先确认权限边界。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-09.html">← 其他生态案例 浏览器与电脑操作</a>
+        <a class="cn-next" href="./eco-06.html">其他生态案例 SSH 远程运维 →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

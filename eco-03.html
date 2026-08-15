@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="plan 模式用推理型模型规划、用户批准后切换执行模型,双模型路由让两个模型各干擅长的事,账单立省一截(36氪报道)。" />
+  <title>双模型路由:dsh-plan-execute｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-03.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "双模型路由:dsh-plan-execute｜DSH 实战蓝皮书",
+  "description": "plan 模式用推理型模型规划、用户批准后切换执行模型,双模型路由让两个模型各干擅长的事,账单立省一截(36氪报道)。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-03.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#source">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例: 双模型路由</p>
+      <p class="section-kicker">ECOSYSTEM CASE · MODELS</p>
+      <h1>双模型路由:dsh-plan-execute</h1>
+      <div class="case-tags"><span>MODELS</span><span>COST</span><span>ROUTING</span></div>
+      <p class="doc-lead">规划用推理型模型、执行交给更经济的模型,两个模型各干擅长的事。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>推理型模型擅长想清楚,但成本高;执行型模型便宜,规划却容易粗糙。dsh-plan-execute 的思路(来自 36氪报道):plan 模式用推理型模型做规划,用户批准后自动切换到执行模型干活,两个模型各干擅长的事。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>计划模式:</strong>先规划,经用户批准后再进入执行。</li>
+        <li><strong>模型路由:</strong>规划与执行分属不同模型,批准后自动切换。</li>
+        <li><strong>成本意识:</strong>贵的模型只用在规划阶段,执行交给更经济的模型。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>把「想清楚」和「干起来」拆给不同模型,用户批准作为切换闸门——规划阶段充分思考,执行阶段快速推进。思路相近的插件还有 dsh-subagent-max、dsh-plugin-product-subagents。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>两个模型各干擅长的事,规划质量不降、账单立省一截(来源报道的定性表述,无具体数字)。</p>
+
+      <h2 id="source"><span class="hash">#</span>出处与上手</h2>
+      <p>本案例事实来自 36氪报道《玩了一夜 DeepSeek Harness…》:<a href="https://www.36kr.com/p/3938774780263814" target="_blank" rel="noopener">36kr.com/p/3938774780263814</a>。思路相近的插件 dsh-subagent-max、dsh-plugin-product-subagents,安装与配置以各自仓库为准。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全提示</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-04.html">← 其他生态案例 Git 工作树隔离交付:dsh-git-worktree</a>
+        <a class="cn-next" href="./eco-05.html">其他生态案例 会话轨迹治理:dsh-trajectory-governance →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

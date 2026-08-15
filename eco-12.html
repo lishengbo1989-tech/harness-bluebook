@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#d8f238" />
+  <meta name="author" content="DSH Bluebook Contributors" />
+  <meta name="description" content="DSH 生态案例:用 dsh-tool-writing、dsh-ffmpeg、dsh-bilibili 搭起网文写作、视频处理与 B 站素材分析的创作流水线。" />
+  <title>生态案例:内容创作与视频｜DSH 实战蓝皮书</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="canonical" href="https://lishengbo1989-tech.github.io/harness-bluebook/eco-12.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "生态案例:内容创作与视频｜DSH 实战蓝皮书",
+  "description": "DSH 生态案例:用 dsh-tool-writing、dsh-ffmpeg、dsh-bilibili 搭起网文写作、视频处理与 B 站素材分析的创作流水线。",
+  "url": "https://lishengbo1989-tech.github.io/harness-bluebook/eco-12.html",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DSH 实战蓝皮书",
+    "url": "https://lishengbo1989-tech.github.io/harness-bluebook/"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html"><span class="brand-mark">◢◤</span>DSH 蓝皮书<small>· DEEPSEEK HARNESS</small></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="菜单">☰</button>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html" class="active">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="./reading-guide.html">阅读指南</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="doc-side">
+      <div class="side-group">
+        <div class="side-title">导航</div>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./bluebook.html">开始阅读</a></li>
+          <li><a href="./cases.html" class="active">案例集</a></li>
+          <li><a href="./help.html">帮你解决</a></li>
+          <li><a href="./reading-guide.html">阅读指南</a></li>
+        </ul>
+      </div>
+      <div class="side-group">
+        <div class="side-title">本页目录</div>
+        <ul>
+          <li><a href="#scenario">场景与目标</a></li>
+          <li><a href="#capabilities">用到的能力</a></li>
+          <li><a href="#how">怎么做到的</a></li>
+          <li><a href="#outcome">实际效果</a></li>
+          <li><a href="#sources">出处与上手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="main-content">
+      <p class="breadcrumb"><a href="./cases.html">案例集</a> → 生态案例:内容创作与视频</p>
+      <p class="section-kicker">ECOSYSTEM CASE · WRITING</p>
+      <h1>生态案例:内容创作与视频</h1>
+      <div class="case-tags"><span>WRITING</span><span>VIDEO</span><span>CREATION</span></div>
+      <p class="doc-lead">网文写作、视频处理与 B 站素材分析,三个插件拼出一条创作流水线。</p>
+
+      <h2 id="scenario"><span class="hash">#</span>场景与目标</h2>
+      <p>网络小说作者与视频创作者要管理长篇连载的伏笔与语料,批量处理视频片段与字幕,还要从 B 站采集元数据、评论与弹幕做选题参考。目标是让这些重复劳动在 DSH 会话里直接完成。</p>
+
+      <h2 id="capabilities"><span class="hash">#</span>用到的能力</h2>
+      <ul>
+        <li><strong>写作引擎:</strong>dsh-tool-writing 支持并行起草、大纲头脑风暴与伏笔管理。</li>
+        <li><strong>检索与台账:</strong>语义向量检索语料库,用量台账记录产出,含机械校对与本地连载计划。</li>
+        <li><strong>视频工具:</strong>dsh-ffmpeg 提供 probe / cut / concat / encode / subtitle / extract / gif 七类工具,免 shell 传参。</li>
+        <li><strong>素材分析:</strong>dsh-bilibili 解析视频元数据、字幕、评论、弹幕与关键帧。</li>
+      </ul>
+
+      <h2 id="how"><span class="hash">#</span>怎么做到的</h2>
+      <p>写作时先做大纲头脑风暴,再并行起草各章,伏笔与语料进入向量检索,连载进度由台账与本地计划跟进;ffmpeg 工具把常见视频操作封装成命令,在对话里描述意图即可;dsh-bilibili 一次性拉取视频的元数据与互动信息,供选题与剪辑参考。</p>
+
+      <h2 id="outcome"><span class="hash">#</span>实际效果</h2>
+      <p>写作流程被拆成可复用的步骤,伏笔不漏、语料随手可查,校对与连载计划在同一处维护;视频的剪切、拼接、转码与字幕处理不用再手写 shell 参数;B 站素材信息集中呈现,减少了手动抓取与整理。</p>
+
+      <h2 id="sources"><span class="hash">#</span>出处与上手</h2>
+      <ul>
+        <li><a href="https://github.com/x2802490130-prog/dsh-tool-writing" target="_blank" rel="noopener">github.com/x2802490130-prog/dsh-tool-writing</a> — 网文写作引擎</li>
+        <li><a href="https://github.com/STARDUSTLC666/dsh-ffmpeg" target="_blank" rel="noopener">github.com/STARDUSTLC666/dsh-ffmpeg</a> — 七类视频工具</li>
+        <li><a href="https://github.com/CZX2244/dsh-bilibili" target="_blank" rel="noopener">github.com/CZX2244/dsh-bilibili</a> — B 站视频分析</li>
+      </ul>
+      <pre class="codeblock"><code>dsh plugin --profile web add dsh-tool-writing
+dsh plugin --profile web add dsh-ffmpeg
+dsh plugin --profile web add dsh-bilibili</code></pre>
+      <p>具体加载方式与依赖以各仓库 README 为准。</p>
+
+      <div class="note warn">
+        <div class="note-title">安全边界</div>
+        安装插件会在你的机器上以你的权限运行第三方代码,可能读取文件、使用凭证、访问网络。工具审批不会对插件代码做沙箱隔离;收录列表不等于安全审查,安装前请审阅源码,陌生插件请在无密钥的环境试用。
+      </div>
+
+      <nav class="chapter-nav">
+        <a class="cn-prev" href="./eco-11.html">← 其他生态案例 学术研究</a>
+        <a class="cn-next" href="./eco-14.html">其他生态案例 游戏与 3D →</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <span class="f-brand"><span class="brand-mark">◢◤</span>DSH 实战蓝皮书</span>
+        <p>社区维护的 DeepSeek Harness 中文实践指南,内容基于官方文档与社区实践整理,欢迎参与共建。</p>
+        <p class="edit-link">在 GitHub 上<a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">改进此页</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="./reading-guide.html">阅读指南</a>
+        <a href="./bluebook.html">开始阅读</a>
+        <a href="./cases.html">案例集</a>
+        <a href="./help.html">帮你解决</a>
+        <a href="https://github.com/deepseek-ai/DeepSeek-Harness" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/deepseek-ai/deepseek-harness/discussions" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://discord.gg/Ycq5dCaS4" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>

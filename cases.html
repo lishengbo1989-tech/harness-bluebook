@@ -65,6 +65,8 @@
         <div class="side-title">本页目录</div>
         <ul>
           <li><a href="#featured">精选案例</a></li>
+          <li><a href="#ecosystem">社区生态案例</a></li>
+          <li><a href="#community-tutorials">社区教程</a></li>
           <li><a href="#how-to-submit">如何提交 Case</a></li>
         </ul>
       </div>
@@ -138,6 +140,170 @@
           <div class="case-result"><b>结果:</b> 每周自动生成巡检报告,人工只需查看结论并决定处理项。</div>
           <a class="case-link" href="./case-06.html">查看完整案例 →</a>
         </article>
+      </div>
+
+      <h2 id="ecosystem"><span class="hash">#</span>社区生态案例(真实项目)</h2>
+      <p>
+        以下案例来自 DeepSeek Harness 真实社区生态——截至 2026 年 8 月,<code>dsh-plugin</code> 话题下已收录
+        <strong>1800+ 插件仓库</strong>,由 <a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin</a>
+        目录站每日追踪。每个案例对应一个可安装、可验证的真实项目,点击查看详情与安装方式。
+      </p>
+
+      <h3>多智能体与工作流</h3>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>AGENTS</span><span>TEAMS</span><span>WORKFLOW</span></div>
+          <h3>一支 AI 团队:dsh-agent-teams</h3>
+          <p>一个会话变成「队长」:组装持久化子代理、把目标拆成依赖感知的任务、通过私信协调工作,自带实时 Web UI。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/NanmiCoder/dsh-agent-teams" target="_blank" rel="noopener">NanmiCoder/dsh-agent-teams ↗</a></div>
+          <a class="case-link" href="./eco-01.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>PLANNING</span><span>GOALS</span><span>HITL</span></div>
+          <h3>人机协同规划:dsh-plans</h3>
+          <p>先把变更请求变成可追踪的 Markdown 计划,经 reviewer/criticizer 子代理精修,再交给 DSH goal 驱动执行。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/Optim-Agent/dsh-plans" target="_blank" rel="noopener">Optim-Agent/dsh-plans ↗</a></div>
+          <a class="case-link" href="./eco-02.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>MODELS</span><span>COST</span><span>ROUTING</span></div>
+          <h3>双模型路由:dsh-plan-execute</h3>
+          <p>plan 模式用推理型模型做规划,用户批准后自动切换执行模型干活,两个模型各干擅长的事。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://www.36kr.com/p/3938774780263814" target="_blank" rel="noopener">36氪报道「玩了一夜 DeepSeek Harness」↗</a></div>
+          <a class="case-link" href="./eco-03.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>GIT</span><span>WORKTREE</span><span>DELIVERY</span></div>
+          <h3>Git 工作树隔离交付:dsh-git-worktree</h3>
+          <p>把变更放进永久工作树,提供 ready-for-review / apply / finish / discard 生命周期,源自 Domi 生产系统。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/wloops/dsh-git-worktree" target="_blank" rel="noopener">wloops/dsh-git-worktree ↗</a></div>
+          <a class="case-link" href="./eco-04.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>TRAJECTORY</span><span>DEBUG</span><span>GOVERNANCE</span></div>
+          <h3>会话轨迹治理:dsh-trajectory-governance</h3>
+          <p>把扁平的会话日志重建为多分支轨迹树,检测循环死锁、无效重试与目标漂移,带成本归因与一键打断。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/dfycaly98931680/dsh-trajectory-governance" target="_blank" rel="noopener">dfycaly98931680/dsh-trajectory-governance ↗</a></div>
+          <a class="case-link" href="./eco-05.html">查看案例详情 →</a>
+        </article>
+      </div>
+
+      <h3>工具与办公</h3>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>SSH</span><span>OPS</span><span>TERMINAL</span></div>
+          <h3>SSH 远程运维:dsh-ssh-ops</h3>
+          <p>在主会话里直接驱动已连接的服务器,右侧保留交互式 xterm.js 终端,读写执行一步到位。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/caoyiwei850/dsh-ssh-ops" target="_blank" rel="noopener">caoyiwei850/dsh-ssh-ops ↗</a></div>
+          <a class="case-link" href="./eco-06.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>EMAIL</span><span>CALDAV</span><span>AUTOMATION</span></div>
+          <h3>邮件与日程:dsh-email · dsh-calendar</h3>
+          <p>IMAP/SMTP 邮件工具 + CalDAV 日程工具,多账号、发送审批闸门、RRULE 展开。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/STARDUSTLC666/dsh-email" target="_blank" rel="noopener">STARDUSTLC666/dsh-email ↗</a></div>
+          <a class="case-link" href="./eco-07.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>EXCEL</span><span>OFFICE</span><span>CONVERSATION</span></div>
+          <h3>Excel 对话式办公:dsh-excel-chat</h3>
+          <p>用对话创建、编辑、修复、校验电子表格,每次编辑后自动做公式健康检查。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/hccccc01333/dsh-excel-chat" target="_blank" rel="noopener">hccccc01333/dsh-excel-chat ↗</a></div>
+          <a class="case-link" href="./eco-08.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>BROWSER</span><span>COMPUTER-USE</span><span>AUTOMATION</span></div>
+          <h3>浏览器与电脑操作:dsh-browser-control 等</h3>
+          <p>驱动真实 Chrome(约 80 个 browser_* 工具)、文本优先的 macOS 电脑控制、零依赖 CDP 浏览器驾驶。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/kyo615/dsh-browser-control" target="_blank" rel="noopener">kyo615/dsh-browser-control ↗</a></div>
+          <a class="case-link" href="./eco-09.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>DATABASE</span><span>TOOLKIT</span><span>DATA</span></div>
+          <h3>数据库与数据工具:dsh-data-agent 等</h3>
+          <p>让 AI 连数据库写 SQL;十个确定性工具(时间/编码/json/csv/正则/markdown…);知识库包构建。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/omdsh-dev/dsh-data-agent" target="_blank" rel="noopener">omdsh-dev/dsh-data-agent ↗</a></div>
+          <a class="case-link" href="./eco-10.html">查看案例详情 →</a>
+        </article>
+      </div>
+
+      <h3>专业领域</h3>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>ACADEMIC</span><span>READING</span><span>LATEX</span></div>
+          <h3>学术研究:dsh-scholar · dsh-deepread 等</h3>
+          <p>学术助手、五模式深度阅读(费曼/知识地图/全书)、Overleaf 论文项目接入。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/xiehuan123/dsh-deepread" target="_blank" rel="noopener">xiehuan123/dsh-deepread ↗</a></div>
+          <a class="case-link" href="./eco-11.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>WRITING</span><span>VIDEO</span><span>CREATION</span></div>
+          <h3>内容创作与视频:dsh-tool-writing 等</h3>
+          <p>网文写作引擎(伏笔管理/语料库/机械校对)、七类 ffmpeg 视频工具、B 站视频分析。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/x2802490130-prog/dsh-tool-writing" target="_blank" rel="noopener">x2802490130-prog/dsh-tool-writing ↗</a></div>
+          <a class="case-link" href="./eco-12.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>FINANCE</span><span>STOCKS</span><span>RESEARCH</span></div>
+          <h3>金融与股票:dsh-us-stocks · dsh-finance</h3>
+          <p>美股行情/财报/分析师共识,金融研究工作流与组合风险工具,重视市场事实来源纪律。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/Realyujie/dsh-us-stocks" target="_blank" rel="noopener">Realyujie/dsh-us-stocks ↗</a></div>
+          <a class="case-link" href="./eco-13.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>GAMING</span><span>3D</span><span>BRIDGE</span></div>
+          <h3>游戏与 3D:godot-bridge · blender</h3>
+          <p>DSH↔Godot 引擎运行时桥(8 个工具),Blender 3D 生产插件(30 个建模/重建技能)。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/Smalldy/godot-bridge" target="_blank" rel="noopener">Smalldy/godot-bridge ↗</a></div>
+          <a class="case-link" href="./eco-14.html">查看案例详情 →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-badge">生态案例 · 社区项目</span>
+          <div class="case-tags"><span>EDUCATION</span><span>TEACHING</span><span>COACHING</span></div>
+          <h3>教育:OpenMAIC · 考试倒计时 · ADHD 教练</h3>
+          <p>清华 MAIC 的课堂/课件/苏格拉底式教学,64 种考试倒计时,ADHD 行为教练技能。</p>
+          <div class="case-result"><b>来源:</b> <a href="https://github.com/THU-MAIC/dsh-openmaic" target="_blank" rel="noopener">THU-MAIC/dsh-openmaic ↗</a></div>
+          <a class="case-link" href="./eco-15.html">查看案例详情 →</a>
+        </article>
+      </div>
+
+      <h2 id="community-tutorials"><span class="hash">#</span>社区教程(延伸学习)</h2>
+      <p>社区还沉淀了一批教学项目,适合想深入理解 Harness 原理与插件开发的读者:</p>
+      <div class="link-cards">
+        <a class="link-card" href="https://github.com/yanhua1010/dsh-harness-tutorial" target="_blank" rel="noopener">
+          <div class="lc-k">TUTORIAL · VITEPRESS 教学站</div>
+          <div class="lc-t">dsh-harness-tutorial:从零到一实现一个 AI Agent</div>
+          <div class="lc-d">原理 8 章 + 源码拆解 6 章 + 8 个可运行 Demo + mini-harness 教学项目。</div>
+        </a>
+        <a class="link-card" href="https://github.com/onychen/learn-dsh" target="_blank" rel="noopener">
+          <div class="lc-k">TUTORIAL · 渐进式课程</div>
+          <div class="lc-t">learn-dsh:拆解 DeepSeek Harness</div>
+          <div class="lc-d">按 dsh 自己的架构分层讲解「一切皆插件」的世界观。</div>
+        </a>
+        <a class="link-card" href="https://github.com/pingfanfan/hello-dsh" target="_blank" rel="noopener">
+          <div class="lc-k">TUTORIAL · 30 分钟上手</div>
+          <div class="lc-t">hello-dsh:从打开终端到第一个插件</div>
+          <div class="lc-d">10 步教程 + 22 个中文技能实例,零基础友好。</div>
+        </a>
+        <a class="link-card" href="https://github.com/Electricitysheep/dsh-handbook" target="_blank" rel="noopener">
+          <div class="lc-k">HANDBOOK · 白皮书</div>
+          <div class="lc-t">dsh-handbook:DeepSeek Harness 白皮书与生态观察</div>
+          <div class="lc-d">15 章手册 + 生态观察中心(1804 插件 / 780 帖讨论区)。</div>
+        </a>
       </div>
 
       <h2 id="how-to-submit"><span class="hash">#</span>如何提交 Case</h2>
